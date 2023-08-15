@@ -1,4 +1,4 @@
-# Exo by Intergalactive
+# Exo :rocket:
 
 <img src="./assets/thumbnail.png">
 
