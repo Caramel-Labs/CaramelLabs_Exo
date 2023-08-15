@@ -2,7 +2,7 @@
 
 <img src="./assets/thumbnail.png">
 
-> *"Lorem Ipsum"* — [Character Name], [TV Show Name]
+> *"If offered a seat on a rocket ship, don't ask what seat. Just get on."* — Christa McAuliffe
 
 ## Interplanetary Travel at Your Fingertips
 
