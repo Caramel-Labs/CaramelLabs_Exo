@@ -79,6 +79,8 @@ node index.js
 
 After both the frontend and backend servers have been started, visit `http://localhost:3000` from your browser.
 
+Separate information about the various architectures, technologies and design decisions for the frontend and backend can be found in their respective folders.
+
 ## Assumptions
 
 During the development of Exo, we made the following assumptions:
