@@ -4,6 +4,8 @@ type travelClassButtonProps = {
   name: string
   iconPath: string
 }
+
+//@dev store the icon svgs here and jsut take a prop to match required svg to the button
 export default function TravelClassButton(props: travelClassButtonProps) {
   return (
     <div>
