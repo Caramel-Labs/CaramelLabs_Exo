@@ -10,14 +10,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/users", userRoute);
-app.use("/api/chat", chatRoutes);
-app.use("/api/messege", messegeRoutes);
+// app.use("/api/users", userRoute);
+// app.use("/api/chat", chatRoutes);
+// app.use("/api/messege", messegeRoutes);
 
 //app.use(notFound);
 //app.use(errorHandler);
 
 connectDB();
 console.log("BACKEND SERVER STARTED");
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Listening to Port ${port}`));
