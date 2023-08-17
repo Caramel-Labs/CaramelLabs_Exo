@@ -1,5 +1,7 @@
 "use-client"
 
+import BookFlight from "@/components/bookFlight/bookFlight"
+
 export default function Booking() {
-  return <div></div>
+  return <BookFlight />
 }

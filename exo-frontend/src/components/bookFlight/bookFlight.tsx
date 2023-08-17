@@ -8,7 +8,7 @@ import TravelClassButton from "./travelClassButton"
 import TotalPrice from "./totalPrice"
 import BlackButton from "../shared/blackButton"
 
-export default function bookFlight() {
+export default function BookFlight() {
   const labels = ["checkbox label 1", "checkbox label 2"]
   return (
     <div>
