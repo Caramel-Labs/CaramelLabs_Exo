@@ -4,7 +4,7 @@ type BlackButtonProps = {
   text: string
 }
 
-export default function BlueButton(props: BlackButtonProps) {
+export default function BlackButton(props: BlackButtonProps) {
   return (
     <button className="bg-black text-white font-bold py-2 px-4 rounded">
       {props.text}
