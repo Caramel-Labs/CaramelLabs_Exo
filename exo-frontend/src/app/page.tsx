@@ -12,10 +12,10 @@ export default function Home() {
           to{" "}
           <span className="font-mono">
             <a
-              href="http://localhost:3000/bookNow"
+              href="http://localhost:3000/booking"
               className="underline underline-offset-2"
             >
-              localhost:3000/bookNow
+              localhost:3000/booking
             </a>
           </span>
           .
