@@ -1,13 +1,13 @@
-type confirmationPageTitleProps = {
+type confirmationPageInfoProps = {
   title: string
+  value: string
 }
 
-export default function ConfirmationPageTitle(
-  props: confirmationPageTitleProps
-) {
+export default function ConfirmationPageInfo(props: confirmationPageInfoProps) {
   return (
     <header className="">
       <h4>{props.title}</h4>
+      <p> {props.value}</p>
     </header>
   )
 }

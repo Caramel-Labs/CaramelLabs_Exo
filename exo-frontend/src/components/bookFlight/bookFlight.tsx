@@ -7,6 +7,7 @@ import BlueLink from "../shared/blueLink"
 import TravelClassButton from "./travelClassButton"
 import TotalPrice from "./totalPrice"
 import BlackButton from "../shared/blackButton"
+import PageHeader from "../shared/pageHeader"
 
 export default function BookFlight() {
   const labels = ["checkbox label 1", "checkbox label 2"]
@@ -26,7 +27,7 @@ export default function BookFlight() {
       <section>
         <SectionHeader question="" />
         <Description value="" />
-        <UserAvatar src="" firstName="" lastName="" />
+        <UserAvatar src="" firstName="" />
       </section>
 
       <section>
