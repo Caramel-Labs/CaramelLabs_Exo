@@ -3,5 +3,9 @@
 import BookFlight from "@/components/bookFlight/bookFlight"
 
 export default function Booking() {
-  return <BookFlight />
+  return (
+    <main className="px-4">
+      <BookFlight />
+    </main>
+  )
 }

@@ -9,9 +9,9 @@ type travelClassButtonProps = {
 export default function TravelClassButton(props: travelClassButtonProps) {
   return (
     <div>
-      <button className="bg-blue-500 hover:bg-blue-700">
-        <Image src={props.iconPath} width={30} height={30} alt="icon" />
-        {props.name}
+      <button className="bg-blue-500 hover:bg-blue-700 flex flex-col rounded-lg">
+        <Image src={props.iconPath} width={100} height={100} alt="icon" />
+        <p className="text-xs">{props.name}</p>
       </button>
     </div>
   )

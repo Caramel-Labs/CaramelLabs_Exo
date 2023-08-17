@@ -5,5 +5,5 @@ type BlueLinkProps = {
 }
 
 export default function BlueLink(props: BlueLinkProps) {
-  return <Link href={""}> {props.text}</Link>
+  return <Link href={""} className="text-xs font-bold text-blue-500"> {props.text}</Link>
 }

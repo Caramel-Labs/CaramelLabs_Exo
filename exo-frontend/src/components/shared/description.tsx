@@ -3,5 +3,5 @@ type descriptionProps = {
 }
 
 export default function Description(props: descriptionProps) {
-  return <p>{props.value}</p>
+  return <p className="text-xs">{props.value}</p>
 }
