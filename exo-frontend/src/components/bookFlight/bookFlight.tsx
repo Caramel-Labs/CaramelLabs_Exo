@@ -12,9 +12,9 @@ import PageHeader from "../shared/pageHeader"
 export default function BookFlight() {
   const labels = ["checkbox label 1", "checkbox label 2"]
   return (
-    <div>
+    <main className="bg-black text-white">
       {/* Page header */}
-      <PageHeader title="Book Flight"/>
+      <PageHeader title="Book Flight" />
 
       {/* Trip type (tabs) */}
       <div className="flex justify-around text-base py-1.5">
@@ -49,7 +49,7 @@ export default function BookFlight() {
         {labels.map((label, i) => (
           <CheckBox key={i} label={label} />
         ))}
-        <div className="text-center">
+        <div className="text-center pt-2">
           <BlueLink text="Contact spaceport for more options" />
         </div>
       </section>
@@ -58,22 +58,28 @@ export default function BookFlight() {
       <section>
         <SectionHeader question="How are you flying?" />
         <Description value="Press and hold to view class details" />
-        <div className="flex justify-between">
-          <TravelClassButton name="Cosmo Cruiser" iconPath="" />
-          <TravelClassButton name="Orion Lux" iconPath="" />
-          <TravelClassButton name="Astro Hop" iconPath="" />
+        <div className="flex justify-between py-6">
+          <TravelClassButton name="Cosmo Cruiser" icon="C" />
+          <TravelClassButton name="Orion Lux" icon="O" />
+          <TravelClassButton name="Astro Hop" icon="A" />
         </div>
         <CheckBox label="This is a business / official trip" />
       </section>
 
+      {/* Line break */}
+
+      <hr className="bg-zinc-800 my-6" />
+
       {/* Running total */}
-      <section>
-        <p> total</p>
-        <TotalPrice totalPrice={0} />
+      <section className="flex justify-between items-center mb-4 px-4 bg-white text-black py-3">
         <div>
-          <BlackButton text="" />
+          <p className="text-xs">Total</p>
+          <TotalPrice totalPrice={69} />
+        </div>
+        <div>
+          <BlackButton text="Get Seats" />
         </div>
       </section>
-    </div>
+    </main>
   )
 }

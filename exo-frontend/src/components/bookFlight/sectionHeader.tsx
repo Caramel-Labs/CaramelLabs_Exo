@@ -5,7 +5,7 @@ type SectionHeaderProps = {
 export default function SectionHeader(props: SectionHeaderProps) {
   return (
     <div className="">
-      <h2 className="text-xl py-4">{props.question}</h2>
+      <h2 className="text-xl py-4 font-bold">{props.question}</h2>
     </div>
   )
 }
