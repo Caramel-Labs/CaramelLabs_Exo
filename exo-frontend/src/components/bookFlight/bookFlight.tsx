@@ -37,8 +37,8 @@ export default function BookFlight() {
 
       {/* Add passengers */}
       <section>
-        <SectionHeader question="Who's coming with you?" />
-        <Description value="Other passengers will receive their tickets on their Exo apps." />
+        <SectionHeader question="" />
+        <Description value="" />
         <UserAvatar src="" firstName="" lastName="" />
       </section>
 
