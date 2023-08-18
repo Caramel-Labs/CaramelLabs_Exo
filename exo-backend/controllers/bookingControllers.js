@@ -1,11 +1,6 @@
-// fetchTripDetails,
-//   createBooking,
-//   fetchSpaceshipDetails,
-//   bookedSeats
 const asyncHandler = require("express-async-handler");
 const { tripModel } = require("../Models/tripModel");
 const { bookingModel } = require("../Models/bookingModel");
-const { spaceshipModel } = require("../Models/spaceshipModel");
 
 //******************************************* */
 //@description     fetch trip details
@@ -19,11 +14,13 @@ const fetchTripDetails = asyncHandler(async (req, res) => {
   }
 
   try {
-    const Trip = await tripModel.find({
-      _id: req.body._id,
-    });
-    //.populate("passengers")
-    //.populate("spaceship");
+    const Trip = await tripModel
+      .findById({
+        _id: req.body._id,
+      })
+      .populate("passengers")
+      .populate("spaceship")
+      .exec();
 
     if (Trip) {
       res.status(200).json(Trip);
@@ -109,12 +106,10 @@ const bookedSeats = asyncHandler(async (req, res) => {
     const booking = await bookingModel.find({
       _id: req.body._id,
     });
-    //.populate("passengers")
-    //.populate("spaceship");
 
     if (booking) {
       try {
-        const filter = { _id: _id };
+        const filter = { _id: req.body._id };
         const update = { $push: { seats: req.body.seats } };
         const options = { new: true };
 
@@ -126,9 +121,20 @@ const bookedSeats = asyncHandler(async (req, res) => {
           console.log("No document found");
         }
         // Fetch the updated profile after the update
-        const yourBooking = await bookingModel.findOne(filter);
-        res.status(200).json(yourBooking);
-        console.log(yourBooking);
+        try {
+          const yourBooking = await bookingModel
+            .findById(filter)
+            .populate("user")
+            .populate("trip")
+            .populate("spaceship")
+            .exec();
+
+          res.status(200).json(yourBooking);
+          console.log(yourBooking);
+        } catch (error) {
+          console.error("Error while populating:", error);
+          res.status(500).json({ message: "Internal server error" });
+        }
       } catch (error) {
         console.error("Error adding value to array:", error);
         res.status(500).json({ error: "Internal server error" });
@@ -141,6 +147,7 @@ const bookedSeats = asyncHandler(async (req, res) => {
     throw new Error(error.message);
   }
 });
+
 module.exports = {
   fetchTripDetails,
   createBooking,

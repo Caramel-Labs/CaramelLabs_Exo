@@ -15,6 +15,8 @@ const spaceshipSchema = new mongoose.Schema({
   owner: String,
 });
 
+spaceshipSchema.set("strictPopulate", false);
+
 const spaceshipModel = mongoose.model("spaceships", spaceshipSchema);
 
 module.exports = { spaceshipModel };

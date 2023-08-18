@@ -25,6 +25,8 @@ const bookingSchema = new mongoose.Schema({
   seats: [String],
 });
 
+bookingSchema.set("strictPopulate", false);
+
 const bookingModel = mongoose.model("bookings", bookingSchema);
 
 module.exports = { bookingModel };
