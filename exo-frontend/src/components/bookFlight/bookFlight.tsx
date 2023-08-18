@@ -9,8 +9,13 @@ import TotalPrice from "./totalPrice"
 import BlackButton from "../shared/blackButton"
 import PageHeader from "../shared/pageHeader"
 
-export default function BookFlight() {
+export default function BookFlight(props: any) {
   const labels = ["Include vegetarian meals", "Include vegan meals"]
+
+  const { arrival, departure, cosmoCruiser, orionLux, astroHop } =
+    props.props[0]
+  console.log("data cominggg")
+
   return (
     <main className="bg-black text-white">
       {/* Page header */}
@@ -30,15 +35,14 @@ export default function BookFlight() {
       {/* Flight overview */}
       <section>
         <SectionHeader question="What's the flight?" />
-        
-        <FlightOverview name="" date="" time="" />
+        <FlightOverview arrival={arrival} departure={departure} />
       </section>
 
       {/* Add passengers */}
       <section>
         <SectionHeader question="Who's coming with you?" />
         <Description value="Other passengers will receive their tickets on their Exo apps." />
-        <UserAvatar src="" firstName="" lastName="" />
+        <UserAvatar src="../public/next.svg" firstName="" lastName="" />
       </section>
 
       {/* Meal Preferences */}
