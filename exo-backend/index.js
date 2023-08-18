@@ -1,18 +1,13 @@
 const express = require("express");
 const connectDB = require("./config/database");
-//const userRoute = require("./Routes/userRoute");
-//const chatRoutes = require("./Routes/chatRoutes");
-//const messegeRoutes = require("./Routes/messegeRoute");
-//const { notFound, errorHandler } = require("./middleware/errorMiddleware");
+const bookingRoute = require("./Routes/bookingRoutes");
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// app.use("/api/users", userRoute);
-// app.use("/api/chat", chatRoutes);
-// app.use("/api/messege", messegeRoutes);
+app.use("/api/booking", bookingRoute);
 
 //app.use(notFound);
 //app.use(errorHandler);
