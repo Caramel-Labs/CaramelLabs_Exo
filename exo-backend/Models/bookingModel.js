@@ -22,6 +22,7 @@ const bookingSchema = new mongoose.Schema({
   tripType: String,
   veg: Boolean,
   price: Number,
+  seats: [String],
 });
 
 const bookingModel = mongoose.model("bookings", bookingSchema);
