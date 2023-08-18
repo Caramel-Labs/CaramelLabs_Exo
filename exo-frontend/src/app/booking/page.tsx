@@ -8,7 +8,6 @@ export default async function Booking() {
   return (
     <main className="min-h-screen px-4 bg-black">
       <BookFlight props={data} />
-      <SelectSeats />
     </main>
   )
 }
