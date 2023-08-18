@@ -31,7 +31,7 @@ export default function ConfirmBooking() {
         <ConfirmationPageInfo title="terminal" value="" />
       </section>
 
-      <BlueButton text="Continue to payment" />
+      <BlueButton text="Continue to payment" sgcLogo={false} />
     </div>
   )
 }

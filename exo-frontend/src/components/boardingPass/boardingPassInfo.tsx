@@ -3,7 +3,7 @@ type BoardingPassInfoProps = {
   value: string
 }
 
-export default function BoardingPassTitle(props: BoardingPassInfoProps) {
+export default function BoardingPassInfo(props: BoardingPassInfoProps) {
   return (
     <header className="">
       <h4>{props.title}</h4>
