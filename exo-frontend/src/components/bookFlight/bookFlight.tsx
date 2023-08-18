@@ -10,7 +10,7 @@ import BlackButton from "../shared/blackButton"
 import PageHeader from "../shared/pageHeader"
 
 export default function BookFlight() {
-  const labels = ["checkbox label 1", "checkbox label 2"]
+  const labels = ["Include vegetarian meals", "Include vegan meals"]
   return (
     <main className="bg-black text-white">
       {/* Page header */}
@@ -30,15 +30,14 @@ export default function BookFlight() {
       {/* Flight overview */}
       <section>
         <SectionHeader question="What's the flight?" />
-        <Description value="Other passengers will receive their tickets on their Exo apps." />
-
+        
         <FlightOverview name="" date="" time="" />
       </section>
 
       {/* Add passengers */}
       <section>
-        <SectionHeader question="" />
-        <Description value="" />
+        <SectionHeader question="Who's coming with you?" />
+        <Description value="Other passengers will receive their tickets on their Exo apps." />
         <UserAvatar src="" firstName="" lastName="" />
       </section>
 
@@ -46,10 +45,12 @@ export default function BookFlight() {
       <section>
         <SectionHeader question="Any meal preferences?" />
         <Description value="Exo will automatically check for allergens your passengers may have and avoid such foods and beverages being served to them." />
-        {labels.map((label, i) => (
-          <CheckBox key={i} label={label} />
-        ))}
-        <div className="text-center pt-2">
+        <div className="flex flex-col mt-4 gap-y-3">
+          {labels.map((label, i) => (
+            <CheckBox key={i} label={label} />
+          ))}
+        </div>
+        <div className="text-center pt-2 pb-5">
           <BlueLink text="Contact spaceport for more options" />
         </div>
       </section>
@@ -59,19 +60,18 @@ export default function BookFlight() {
         <SectionHeader question="How are you flying?" />
         <Description value="Press and hold to view class details" />
         <div className="flex justify-between py-6">
-          <TravelClassButton name="Cosmo Cruiser" icon="C" />
-          <TravelClassButton name="Orion Lux" icon="O" />
-          <TravelClassButton name="Astro Hop" icon="A" />
+          <TravelClassButton name1="Cosmo" name2="Cruiser" icon="C" />
+          <TravelClassButton name1="Orion" name2="Lux" icon="O" />
+          <TravelClassButton name1="Astro" name2="Hop" icon="A" />
         </div>
         <CheckBox label="This is a business / official trip" />
       </section>
 
       {/* Line break */}
-
       <hr className="bg-zinc-800 my-6" />
 
       {/* Running total */}
-      <section className="flex justify-between items-center mb-4 px-4 bg-white text-black py-3">
+      <section className="flex justify-between items-center mb-4 px-4 bg-white text-black py-3 rounded-lg">
         <div>
           <p className="text-xs">Total</p>
           <TotalPrice totalPrice={69} />

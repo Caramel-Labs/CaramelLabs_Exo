@@ -1,7 +1,8 @@
 import Image from "next/image"
 
 type travelClassButtonProps = {
-  name: string
+  name1: string
+  name2: string
   icon: string
 }
 
@@ -11,7 +12,11 @@ export default function TravelClassButton(props: travelClassButtonProps) {
     <div className="text-white">
       <button className="bg-blue-500 hover:bg-blue-700 flex flex-col rounded-lg w-24 h-24 justify-center" >
         <p className="text-4xl font-bold">{props.icon}</p>
-        <p className="text-sm">{props.name}</p>
+        <p className="text-sm font-bold">
+          {props.name1}
+          <br />
+          {props.name2}
+        </p>
       </button>
     </div>
   )

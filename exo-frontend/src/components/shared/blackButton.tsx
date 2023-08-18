@@ -6,7 +6,7 @@ type BlackButtonProps = {
 
 export default function BlackButton(props: BlackButtonProps) {
   return (
-    <button className="bg-black text-white font-bold py-2 px-4 rounded">
+    <button className="bg-black text-white font-bold py-2 px-3 rounded text-xs">
       {props.text}
     </button>
   )

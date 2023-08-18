@@ -14,7 +14,7 @@ export default function FlightOverview(props: flightOverviewProps) {
         <SpacePortName name="" />
         <BookingDateAndTime date="" time="" />
       </div>
-      <div> rocketshippppp</div>
+      <div>Rokitship go brrr</div>
       <div>
         <SpacePortName name="" />
         <BookingDateAndTime date="" time="" />
