@@ -4,7 +4,7 @@ import BlueButton from "../shared/blueButton"
 import FlightOverview from "../shared/flightOverview"
 import PageHeader from "../shared/pageHeader"
 import UserAvatar from "../shared/userAvatar"
-import ConfirmationPageInfo from "./confirmationPageTitle"
+import ConfirmationPageInfo from "./confirmationPageInfo"
 
 export default function ConfirmBooking() {
   return (
@@ -31,7 +31,7 @@ export default function ConfirmBooking() {
         <ConfirmationPageInfo title="terminal" value="" />
       </section>
 
-      <BlueButton text="Continue to payment" />
+      <BlueButton text="Continue to payment" sgcLogo={false} />
     </div>
   )
 }
