@@ -11,9 +11,9 @@ type totalPriceProps = {
   currentClass: string
 }
 
-export default function TotalPrice(props: totalPriceProps) {
+export default function TotalTicketPrice(props: totalPriceProps) {
   const [totalPrice, setTotalPrice] = useState<string>("0")
-  console.log(props.currentClass)
+  //console.log(props.currentClass)
   useEffect(() => {
     const calculatePriceBasedOnClass = () => {
       switch (props.currentClass) {
@@ -33,7 +33,7 @@ export default function TotalPrice(props: totalPriceProps) {
 
     const newTotalPrice = String(calculatePriceBasedOnClass())
     setTotalPrice(newTotalPrice)
-    console.log(totalPrice)
+    //console.log(totalPrice)
   }, [props.currentClass, props.passengerCount])
 
   return (

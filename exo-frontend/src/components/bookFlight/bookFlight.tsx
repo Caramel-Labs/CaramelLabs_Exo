@@ -7,7 +7,7 @@ import UserAvatar from "../shared/userAvatar"
 import CheckBox from "./checkBox"
 import BlueLink from "../shared/blueLink"
 import TravelClassButton from "./travelClassButton"
-import TotalPrice from "./totalPrice"
+import TotalTicketPrice from "./totalTicketPrice"
 import BlackButton from "../shared/blackButton"
 import PageHeader from "../shared/pageHeader"
 
@@ -103,7 +103,7 @@ export default function BookFlight(props: any) {
       <section className="flex justify-between items-center mb-4 px-4 bg-white text-black py-3 rounded-lg">
         <div>
           <p className="text-xs">Total</p>
-          <TotalPrice
+          <TotalTicketPrice
             passengerCount={passengerCount}
             cosmoCruiserPrice={cosmoCruiser.ticketPrice}
             astroHopPrice={astroHop.ticketPrice}
