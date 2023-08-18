@@ -1,16 +1,23 @@
-import Image from "next/image"
-
 type travelClassButtonProps = {
   name1: string
   name2: string
   icon: string
+  currentClass: string
+  setCurrentClass: React.Dispatch<React.SetStateAction<string>>
 }
 
 //@dev store the icon svgs here and jsut take a prop to match required svg to the button
 export default function TravelClassButton(props: travelClassButtonProps) {
+  const handleClick = () => {
+    props.setCurrentClass(props.name1) // Update the currentClass state
+  }
+
   return (
     <div className="text-white">
-      <button className="bg-blue-500 hover:bg-blue-700 flex flex-col rounded-lg w-24 h-24 justify-center" >
+      <button
+        className="bg-blue-500 hover:bg-blue-700 flex flex-col rounded-lg w-24 h-24 justify-center"
+        onClick={handleClick}
+      >
         <p className="text-4xl font-bold">{props.icon}</p>
         <p className="text-sm font-bold">
           {props.name1}
