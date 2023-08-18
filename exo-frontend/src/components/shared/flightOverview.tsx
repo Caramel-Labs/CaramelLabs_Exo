@@ -1,5 +1,6 @@
 import BookingDateAndTime from "./bookingDateAndTime"
 import SpacePortName from "./spacePortName"
+import convertDateFromISO from "../../utils/convertDateFromISO"
 
 type flightOverviewProps = {
   departure: {
@@ -15,22 +16,26 @@ type flightOverviewProps = {
 }
 
 export default function FlightOverview(props: flightOverviewProps) {
-  console.log(props, "data cominggg heree")
+  const departureDateAndTime = convertDateFromISO(props.departure.date)
+  const arrivalDateAndTime = convertDateFromISO(props.arrival.date)
+
+  //console.log(departureDateAndTime, "data cominggg heree")
+
   return (
     <div>
       <div>
         <SpacePortName name={props.departure.location} />
         <BookingDateAndTime
-          date={props.departure.date}
-          time={props.departure.date}
+          date={departureDateAndTime[0]}
+          time={departureDateAndTime[1]}
         />
       </div>
       <div>Rocketship go brrr</div>
       <div>
         <SpacePortName name={props.arrival.location} />
         <BookingDateAndTime
-          date={props.arrival.date}
-          time={props.arrival.date}
+          date={arrivalDateAndTime[0]}
+          time={arrivalDateAndTime[1]}
         />
       </div>
     </div>
