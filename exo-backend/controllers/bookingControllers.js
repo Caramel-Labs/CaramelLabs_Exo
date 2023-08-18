@@ -27,11 +27,14 @@ const fetchTripDetails = asyncHandler(async (req, res) => {
 
     if (Trip) {
       res.status(200).json(Trip);
+      console.log(Trip);
     } else {
       res.status(404).json({ message: "Trip object not found" });
+      console.log("Trip object not found");
     }
   } catch (error) {
     res.status(400);
+    console.log("Error is in the fetchTripDetails function", error);
     throw new Error(error.message);
   }
 });
@@ -51,6 +54,7 @@ const createBooking = asyncHandler(async (req, res) => {
     tripType: Joi.string(),
     veg: Joi.boolean(),
     price: Joi.number().required(),
+    seats: Joi.string(),
   });
 
   const result = schema.validate(req.body);
@@ -90,8 +94,55 @@ const createBooking = asyncHandler(async (req, res) => {
     console.error("Error saving Booking:", error);
   }
 });
+//******************************************* */
+//@description     Seat Booking
+//@route           POST /api/booking/seats
+//@access          --
+//******************************************* */
+const bookedSeats = asyncHandler(async (req, res) => {
+  if (!req.body._id) {
+    console.log("booking_id param not sent with request");
+    return res.sendStatus(400);
+  }
 
+  try {
+    const booking = await bookingModel.find({
+      _id: req.body._id,
+    });
+    //.populate("passengers")
+    //.populate("spaceship");
+
+    if (booking) {
+      try {
+        const filter = { _id: _id };
+        const update = { $push: { seats: req.body.seats } };
+        const options = { new: true };
+
+        const result = await bookingModel.updateOne(filter, update, options);
+        console.log(result);
+
+        if (result.nModified === 0) {
+          return res.status(404).json({ error: "No document found" });
+          console.log("No document found");
+        }
+        // Fetch the updated profile after the update
+        const yourBooking = await bookingModel.findOne(filter);
+        res.status(200).json(yourBooking);
+        console.log(yourBooking);
+      } catch (error) {
+        console.error("Error adding value to array:", error);
+        res.status(500).json({ error: "Internal server error" });
+      }
+    } else {
+      res.status(404).json({ message: "Booking object not found" });
+    }
+  } catch (error) {
+    res.status(400);
+    throw new Error(error.message);
+  }
+});
 module.exports = {
   fetchTripDetails,
   createBooking,
+  bookedSeats,
 };
