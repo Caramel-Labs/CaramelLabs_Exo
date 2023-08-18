@@ -1,30 +1,40 @@
+const mongoose = require("mongoose");
 const asyncHandler = require("express-async-handler");
 const { userModel } = require("../Models/userModel");
+const { bookingModel } = require("../Models/bookingModel");
+const { spaceshipModel } = require("../Models/spaceshipModel");
+const { tripModel } = require("../Models/tripModel");
 
 //****************************************************** */
 //@description     fetch Boarding Passes
 //@route           POST /api/booking/boardingPasses
 //@access          --
 //****************************************************** */
-const fetchUserProfile = asyncHandler(async (req, res) => {
+const fetchBoardingPasses = asyncHandler(async (req, res) => {
   try {
-    const user = await userModel.find({
-      _id: req.params._id, //suppose this _id = SGC id
-    });
+    const userObjectId = new mongoose.Types.ObjectId(req.body._id);
 
-    if (user) {
-      res.status(200).json(user);
-      console.log(user);
+    const userBookings = await bookingModel
+      .find({
+        participants: userObjectId,
+      })
+      .populate("spaceship")
+      .populate("trip")
+      .exec();
+
+    if (userBookings.length > 0) {
+      res.status(200).json(userBookings);
+      console.log(userBookings);
     } else {
-      res.status(404).json({ message: "Trip object not found" });
-      console.log("Trip object not found");
+      res.status(404).json({ message: "The user does not have any bookings" });
+      console.log("The user does not have any bookings");
     }
   } catch (error) {
-    res.status(400);
-    console.log("Error is in the fetchTripDetails function", error);
-    throw new Error(error.message);
+    res.status(400).json({ message: "Error in fetchBoardingPasses function" });
+    console.log("Error in the fetchBoardingPasses function:", error);
   }
 });
+
 module.exports = {
-  fetchUserProfile,
+  fetchBoardingPasses,
 };

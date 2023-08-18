@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const { tripModel } = require("../Models/tripModel");
 const { bookingModel } = require("../Models/bookingModel");
+const { spaceshipModel } = require("../Models/spaceshipModel");
 
 //******************************************* */
 //@description     fetch trip details

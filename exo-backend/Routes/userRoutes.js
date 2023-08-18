@@ -1,8 +1,8 @@
 const express = require("express");
-const { fetchUserProfile } = require("../controllers/userControllers");
+const { fetchBoardingPasses } = require("../controllers/userControllers");
 
 const router = express.Router();
 
-router.route("/").post(fetchUserProfile);
+router.route("/bordingPass").post(fetchBoardingPasses);
 
 module.exports = router;
