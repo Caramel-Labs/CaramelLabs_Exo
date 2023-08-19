@@ -7,6 +7,8 @@ const paymentCardSchema = new mongoose.Schema({
   cardType: String,
 });
 
-const paymentCardModel = mongoose.model("paymentCard", paymentCardSchema);
+paymentCardSchema.set("strictPopulate", false);
+
+const paymentCardModel = mongoose.model("cards", paymentCardSchema);
 
 module.exports = { paymentCardModel };
