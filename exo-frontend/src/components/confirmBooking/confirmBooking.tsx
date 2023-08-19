@@ -12,10 +12,10 @@ export default function ConfirmBooking(props: any) {
   return (
     <div>
       <PageHeader title="Confirm Booking" />
-      <section>
-        <p>Planet nameee</p>
-        <p> rocketttttttttt</p>
-        <p>Planet nameee</p>
+      <section className="flex justify-around">
+        <p>JFK</p>
+        <p>Rockit</p>
+        <p>GRS</p>
       </section>
 
       <section>
@@ -25,7 +25,7 @@ export default function ConfirmBooking(props: any) {
       <section>
         <SectionHeader question="Passengers" />
         <UserAvatar src="" firstName="" lastName="" />
-        <SeatButton seatNumber="" availablity={true} aisle={false} />
+        <SeatButton seatNumber="" isAvailable={true} aisle={false} isSelected={true} />
       </section>
 
       <section>
