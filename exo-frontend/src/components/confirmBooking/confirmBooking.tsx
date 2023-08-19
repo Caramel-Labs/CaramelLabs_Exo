@@ -13,9 +13,9 @@ export default function ConfirmBooking(props: any) {
     <div>
       <PageHeader title="Confirm Booking" />
       <section>
-        <p>Planet nameee</p>
+        <p>{arrival.location}</p>
         <p> rocketttttttttt</p>
-        <p>Planet nameee</p>
+        <p>{departure.location}</p>
       </section>
 
       <section>
