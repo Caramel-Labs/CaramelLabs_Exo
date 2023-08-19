@@ -4,7 +4,7 @@ import FlightOverview from "../shared/flightOverview"
 import BoardingPassInfo from "./boardingPassInfo"
 import BlueButton from "../shared/blueButton"
 
-export default function BoardingPass() {
+export default async function BoardingPass() {
   return (
     <div>
       <PageHeader title="Boarding Pass" />

@@ -3,12 +3,14 @@ import PageHeader from "../shared/pageHeader"
 import CheckoutPageInfo from "./checkoutPageInfo"
 import calculateTotalPrice from "@/utils/calculateTotalPrice"
 import handleBooking from "@/utils/handleBooking"
+import getCards from "@/utils/getCards"
 
-export default function Checkout(props: any) {
+export default async function Checkout(props: any) {
   const { cosmoCruiser, orionLux, astroHop } = props.props[0]
+  const cards = await getCards()
 
   const mockBooking = {
-    user: "61572b7c8c5f2500159407d2", // Sample ObjectId for a user
+    _id: "", // Sample ObjectId for a user
     spaceship: "61572b7c8c5f2500159407e3", // Sample ObjectId for a spaceship
     trip: "61572b7c8c5f2500159407f4", // Sample ObjectId for a trip
     participants: "", // Sample ObjectId for participants
@@ -35,6 +37,7 @@ export default function Checkout(props: any) {
   ]
 
   const totalPrice = calculateTotalPrice(astroHop)
+
   return (
     <div>
       <PageHeader title="Payment" />
