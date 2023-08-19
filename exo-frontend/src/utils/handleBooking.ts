@@ -14,7 +14,7 @@ export default async function handleBooking(formData: any): Promise<any>{
       if (response.status === 200) {
         const data = await response.json()
         console.log(data)
-        return data
+        return response
       } else {
         console.log("Booking creation failed")
       }
