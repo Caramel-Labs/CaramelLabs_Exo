@@ -10,6 +10,7 @@ import TravelClassButton from "./travelClassButton"
 import TotalTicketPrice from "./totalTicketPrice"
 import BlackButton from "../shared/blackButton"
 import PageHeader from "../shared/pageHeader"
+import { useFormState } from "@/context/bookingFormContext"
 
 import { useState } from "react"
 
@@ -19,7 +20,9 @@ export default function BookFlight(props: any) {
   const [passengerCount, setPassengerCount] = useState(1)
   const [currentClass, setCurrentClass] = useState("Cosmo")
 
-  const { arrival, departure, cosmoCruiser, orionLux, astroHop } = props.props
+  const { onHandleNext, setFormData, formData } = useFormState()
+  const { arrival, departure, cosmoCruiser, orionLux, astroHop } =
+    props.props.props
   console.log(props, "data cominggg")
 
   return (
@@ -111,7 +114,7 @@ export default function BookFlight(props: any) {
           />
         </div>
         <div>
-          <BlackButton text="Get Seats" />
+          <BlackButton text="Get Seats" onClick={onHandleNext} />
         </div>
       </section>
     </main>
