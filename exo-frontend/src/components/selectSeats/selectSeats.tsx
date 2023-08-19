@@ -41,7 +41,7 @@ export default function SelectSeats() {
                 {/* Second row */}
                 <SeatButton seatNumber="C5" isAvailable={true} aisle={false} isSelected={false} />
                 <SeatButton seatNumber="C6" isAvailable={true} aisle={false} isSelected={false} />
-                <SeatButton seatNumber="C7" isAvailable={true} aisle={false} isSelected={false} />
+                <SeatButton seatNumber="C7" isAvailable={true} aisle={false} isSelected={true} />
                 <SeatButton seatNumber="X" isAvailable={false} aisle={true} isSelected={false} />
                 <SeatButton seatNumber="C8" isAvailable={false} aisle={false} isSelected={false} />
                 <SeatButton seatNumber="C9" isAvailable={false} aisle={false} isSelected={false} />
