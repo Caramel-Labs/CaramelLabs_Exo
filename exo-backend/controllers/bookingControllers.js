@@ -1,4 +1,6 @@
 const asyncHandler = require("express-async-handler");
+const mongoose = require("mongoose");
+const Joi = require("joi");
 const { tripModel } = require("../Models/tripModel");
 const { bookingModel } = require("../Models/bookingModel");
 const { spaceshipModel } = require("../Models/spaceshipModel");
@@ -44,15 +46,17 @@ const fetchTripDetails = asyncHandler(async (req, res) => {
 //******************************************* */
 const createBooking = asyncHandler(async (req, res) => {
   const schema = Joi.object({
-    user_id: Joi.string().required(),
-    spaceship_id: Joi.string().required(),
-    trip_id: Joi.array().items(Joi.string()),
+    user: Joi.string().required(),
+    spaceship: Joi.string().required(),
+    trip: Joi.array().items(Joi.string()),
+    participants: Joi.array().items(Joi.string()),
     status: Joi.string().required(),
     class: Joi.string().required(),
     tripType: Joi.string(),
     veg: Joi.boolean(),
+    vegan: Joi.boolean(),
     price: Joi.number().required(),
-    seats: Joi.string(),
+    seats: Joi.array().items(Joi.string()),
   });
 
   const result = schema.validate(req.body);
@@ -61,27 +65,20 @@ const createBooking = asyncHandler(async (req, res) => {
     return;
   }
 
-  //check whether the user is already registered
-  let user = await ProfileModel.findOne({
-    $and: [
-      { user: { $elemMatch: { $eq: user_id } } },
-      { trip: { $elemMatch: { $eq: trip_id } } },
-    ],
-  });
-  if (user) {
-    console.log(`${req.body.email} is already registered`);
-    return res.status(400).send("Email already registered");
-  }
-
   const newbooking = new bookingModel({
-    user_id: req.body.user_id,
-    spaceship_id: req.body.spaceship_id,
-    trip_id: req.body.trip_id,
-    status: req.body.staus,
+    user: req.body.user,
+    spaceship: req.body.spaceship,
+    trip: req.body.trip.map((tripId) => new mongoose.Types.ObjectId(tripId)),
+    participants: req.body.participants.map(
+      (participantId) => new mongoose.Types.ObjectId(participantId)
+    ),
+    status: req.body.status,
     class: req.body.class,
     tripType: req.body.tripType,
     veg: req.body.veg,
+    vegan: req.body.vegan,
     price: req.body.price,
+    seats: req.body.seats,
   });
 
   try {

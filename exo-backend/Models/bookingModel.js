@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const { tripModel } = require("../Models/tripModel");
+const { spaceshipModel } = require("../Models/spaceshipModel");
+const { userModel } = require("../Models/userModel");
 
 const bookingSchema = new mongoose.Schema({
   user: {
@@ -9,18 +12,23 @@ const bookingSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "spaceships",
   },
-  trip: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "trips",
-  },
-  participants: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "users",
-  },
+  trip: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "trips",
+    },
+  ],
+  participants: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
+    },
+  ],
   status: String,
   class: String,
   tripType: String,
   veg: Boolean,
+  vegan: Boolean,
   price: Number,
   seats: [String],
 });
