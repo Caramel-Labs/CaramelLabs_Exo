@@ -50,7 +50,7 @@ export default function Checkout() {
       </section>
 
       <section className="text-lg flex justify-between font-bold mt-4">
-        <p>Total Price</p>
+        <p>Your Total</p>
         <p>{totalPrice} CR</p>
       </section>
 
