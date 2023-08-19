@@ -1,3 +1,4 @@
+import handleBooking from "@/utils/handleBooking"
 import SectionHeader from "../bookFlight/sectionHeader"
 import SeatButton from "../selectSeats/seatButton"
 import BlueButton from "../shared/blueButton"
@@ -6,8 +7,33 @@ import PageHeader from "../shared/pageHeader"
 import UserAvatar from "../shared/userAvatar"
 import ConfirmationPageInfo from "./confirmationPageInfo"
 
-export default function ConfirmBooking(props: any) {
-  const { arrival, departure } = props
+import { useFormState } from "@/context/bookingFormContext"
+
+export default function ConfirmBooking() {
+  const { onHandleNext, onHandleBack, formData } = useFormState()
+
+  const {
+    arrival,
+    departure,
+    currentClass,
+    passengerCount,
+    isBusinessTrip,
+    isVeganMeal,
+    isVegMeal,
+  } = formData
+
+  async function handleBookingSubmit() {
+    try {
+      const response = await handleBooking(formData)
+
+      if (response.status === 200) {
+        onHandleNext()
+        console.log("Booking successful")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div>
@@ -45,15 +71,25 @@ export default function ConfirmBooking(props: any) {
 
       {/* Miscellaneous info */}
       <section className="grid grid-cols-2">
-        <ConfirmationPageInfo title="Terminal" value="Kronos Gate 7B" />
-        <ConfirmationPageInfo title="Class" value="Cosmo Cruiser" />
-        <ConfirmationPageInfo title="Trip Type" value="Personal (Family)" />
-        <ConfirmationPageInfo title="Meal Preferences" value="None" />
+        <ConfirmationPageInfo title="Terminal" value={departure.terminal} />
+        <ConfirmationPageInfo title="Class" value={currentClass} />
+        <ConfirmationPageInfo
+          title="Trip Type"
+          value={isBusinessTrip ? "Business" : "Personal(Family)"}
+        />
+        <ConfirmationPageInfo
+          title="Meal Preferences"
+          value={isVegMeal ? "Vegetarian" : isVeganMeal ? "Vegan" : "none"}
+        />
       </section>
 
       {/* Continue button */}
       <section className="flex justify-center items-center mt-12">
-        <BlueButton text="Continue to payment" sgcLogo={false} />
+        <BlueButton
+          text="Continue to payment"
+          sgcLogo={false}
+          onClick={handleBookingSubmit}
+        />
       </section>
     </div>
   )
