@@ -3,6 +3,7 @@ import Image from "next/image"
 type BlueButtonProps = {
   text: string
   sgcLogo: boolean
+  onClick?: () => void // @dev onClick function
 }
 
 const logoPath: string = ""

@@ -6,7 +6,9 @@ import PageHeader from "../shared/pageHeader"
 import UserAvatar from "../shared/userAvatar"
 import ConfirmationPageInfo from "./confirmationPageInfo"
 
-export default function ConfirmBooking() {
+export default function ConfirmBooking(props: any) {
+  const { arrival, departure } = props.props[0]
+
   return (
     <div>
       <PageHeader title="Confirm Booking" />
@@ -17,14 +19,13 @@ export default function ConfirmBooking() {
       </section>
 
       <section>
-        <FlightOverview name="" date="" time="" />
-        <FlightOverview name="" date="" time="" />
+        <FlightOverview arrival={arrival} departure={departure} />
       </section>
 
       <section>
         <SectionHeader question="Passengers" />
         <UserAvatar src="" firstName="" lastName="" />
-        <SeatButton seatNumber="" availablity={true} />
+        <SeatButton seatNumber="" availablity={true} aisle={false} />
       </section>
 
       <section>
