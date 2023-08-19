@@ -10,7 +10,7 @@ const logoPath: string = ""
 
 export default function BlueButton(props: BlueButtonProps) {
   return (
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <button className="bg-blue-500 hover:bg-blue-700 text-white text-xs font-bold py-2.5 px-14 rounded">
       {props.sgcLogo && (
         <Image src={logoPath} height={30} width={30} alt="sgc-logo" />
       )}

@@ -12,27 +12,38 @@ export default function ConfirmBooking(props: any) {
   return (
     <div>
       <PageHeader title="Confirm Booking" />
-      <section>
+
+      {/* Visualization (with planets) */}
+      <section className="flex justify-around">
         <p>{arrival.location}</p>
-        <p> rocketttttttttt</p>
+        <p>Rokit</p>
         <p>{departure.location}</p>
       </section>
 
+      {/* Trip overview */}
       <section>
         <FlightOverview arrival={arrival} departure={departure} />
       </section>
 
+      {/* Passengers */}
       <section>
         <SectionHeader question="Passengers" />
         <UserAvatar src="" firstName="" lastName="" />
-        <SeatButton seatNumber="" availablity={true} aisle={false} />
+        <SeatButton seatNumber="" isAvailable={true} aisle={false} isSelected={true} />
       </section>
 
-      <section>
-        <ConfirmationPageInfo title="terminal" value="" />
+      {/* Miscellaneous info */}
+      <section className="grid grid-cols-2">
+        <ConfirmationPageInfo title="Terminal" value="Kronos Gate 7B" />
+        <ConfirmationPageInfo title="Class" value="Cosmo Cruiser" />
+        <ConfirmationPageInfo title="Trip Type" value="Personal (Family)" />
+        <ConfirmationPageInfo title="Meal Preferences" value="None" />
       </section>
 
-      <BlueButton text="Continue to payment" sgcLogo={false} />
+      {/* Continue button */}
+      <section className="flex justify-center items-center mt-12">
+        <BlueButton text="Continue to payment" sgcLogo={false} />
+      </section>
     </div>
   )
 }
