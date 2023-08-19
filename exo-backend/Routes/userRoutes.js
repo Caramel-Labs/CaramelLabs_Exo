@@ -3,6 +3,6 @@ const { fetchBoardingPasses } = require("../controllers/userControllers");
 
 const router = express.Router();
 
-router.route("/bordingPass").post(fetchBoardingPasses);
+router.route("/boardingPass").post(fetchBoardingPasses);
 
 module.exports = router;
