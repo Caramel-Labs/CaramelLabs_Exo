@@ -19,9 +19,8 @@ export default function BookFlight(props: any) {
   const [passengerCount, setPassengerCount] = useState(1)
   const [currentClass, setCurrentClass] = useState("Cosmo")
 
-  const { arrival, departure, cosmoCruiser, orionLux, astroHop } =
-    props.props[0]
-  console.log("data cominggg")
+  const { arrival, departure, cosmoCruiser, orionLux, astroHop } = props.props
+  console.log(props, "data cominggg")
 
   return (
     <main className="bg-black text-white">

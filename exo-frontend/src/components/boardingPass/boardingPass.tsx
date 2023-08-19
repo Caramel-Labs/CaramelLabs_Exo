@@ -10,9 +10,7 @@ export default function BoardingPass() {
       <PageHeader title="Boarding Pass" />
       <BoardingPassId id="123456789" />
 
-      <section>
-        <FlightOverview name="" date="" time="" />
-      </section>
+      <section></section>
 
       <section>
         <BoardingPassInfo title="Date" value="02 Jun 2165" />

@@ -7,7 +7,7 @@ import UserAvatar from "../shared/userAvatar"
 import ConfirmationPageInfo from "./confirmationPageInfo"
 
 export default function ConfirmBooking(props: any) {
-  const { arrival, departure } = props.props[0]
+  const { arrival, departure } = props
 
   return (
     <div>
@@ -29,7 +29,18 @@ export default function ConfirmBooking(props: any) {
       <section>
         <SectionHeader question="Passengers" />
         <UserAvatar src="" firstName="" lastName="" />
-        <SeatButton seatNumber="" isAvailable={true} aisle={false} isSelected={true} />
+        <SeatButton
+          seatNumber=""
+          isAvailable={true}
+          aisle={false}
+          isSelected={true}
+        />
+        <SeatButton
+          seatNumber=""
+          isAvailable={true}
+          aisle={false}
+          isSelected={true}
+        />
       </section>
 
       {/* Miscellaneous info */}
