@@ -22,11 +22,39 @@ export default function ConfirmBooking() {
     isVegMeal,
   } = formData
 
+  const bookingData = {
+    user: "64df1d6d660b27f90c195a3a",
+    spaceship: "64df1ef6660b27f90c195a3c",
+    trip: ["64ddabe6c50e42701f869076"],
+    participants: ["61572b7c8c5f2500159407e3", "61572b7c8c5f2500159407e3"],
+    class: currentClass,
+    tripType: isBusinessTrip ? "Business" : "Personal",
+    vegan: isVeganMeal,
+    veg: isVegMeal,
+    price: 1500,
+    seats: ["A1", "A2", "A3"],
+    status: "pending",
+  }
+
+  // const bookingData = {
+  //   user: "64df1d6d660b27f90c195a3a",
+  //   spaceship: "64df1ef6660b27f90c195a3c",
+  //   trip: ["64ddabe6c50e42701f869076"],
+  //   participants: ["64df1d6d660b27f90c195a3a", "64df1db0660b27f90c195a3b"],
+  //   status: "Confirmed",
+  //   class: "Cosmo Cruiser",
+  //   tripType: "Round-trip",
+  //   veg: true,
+  //   vegan: false,
+  //   price: 2500,
+  //   seats: ["A1", "A2"],
+  // }
+
   async function handleBookingSubmit() {
     try {
-      const response = await handleBooking(formData)
-
-      if (response.status === 200) {
+      const response = await handleBooking(JSON.stringify(bookingData))
+      console.log(response, "response")
+      if (response && response.status === 200) {
         onHandleNext()
         console.log("Booking successful")
       }

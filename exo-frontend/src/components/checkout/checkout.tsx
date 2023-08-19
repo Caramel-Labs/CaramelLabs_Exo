@@ -4,40 +4,34 @@ import CheckoutPageInfo from "./checkoutPageInfo"
 import calculateTotalPrice from "@/utils/calculateTotalPrice"
 import handleBooking from "@/utils/handleBooking"
 import getCards from "@/utils/getCards"
+import { useFormState } from "@/context/bookingFormContext"
+import { on } from "process"
 
-export default async function Checkout(props: any) {
-  console.log(`Props are ${props.props[0]}`)
-  const { cosmoCruiser, orionLux, astroHop } = props.props[0]
-  const cards = await getCards()
+export default function Checkout() {
+  //console.log(`Props are ${props.props[0]}`)
+  const { onHandleNext, onHandleBack, formData } = useFormState()
+  const { cosmoCruiser, orionLux, astroHop, currentClass } = formData
+  //const cards = await getCards()
 
-  const mockBooking = {
-    _id: "", // Sample ObjectId for a user
-    spaceship: "61572b7c8c5f2500159407e3", // Sample ObjectId for a spaceship
-    trip: "61572b7c8c5f2500159407f4", // Sample ObjectId for a trip
-    participants: "", // Sample ObjectId for participants
-    status: "Confirmed",
-    class: "Cosmo Cruiser",
-    tripType: "Round Trip",
-    veg: true,
-    price: 1500,
-    seats: ["A1", "A2", "B3"],
-  }
+  const classToGetPrices =
+    currentClass === "Cosmo Cruiser"
+      ? cosmoCruiser
+      : currentClass === "Orion Lux"
+      ? orionLux
+      : astroHop
 
   async function handleClick() {
-    const response = await handleBooking(mockBooking)
-    if (response.status === 200) {
-      console.log("Booking successful")
-    }
+    onHandleNext()
   }
 
   const paymentItems = [
-    { key: "Ticket price", value: astroHop.ticketPrice },
-    { key: "Accommodation", value: astroHop.accomodationPrice },
-    { key: "Food and Beverages", value: astroHop.foodAndBeveragePrice },
-    { key: "Miscellaneous", value: astroHop.miscellaneousPrice },
+    { key: "Ticket price", value: classToGetPrices.ticketPrice },
+    { key: "Accommodation", value: classToGetPrices.accomodationPrice },
+    { key: "Food and Beverages", value: classToGetPrices.foodAndBeveragePrice },
+    { key: "Miscellaneous", value: classToGetPrices.miscellaneousPrice },
   ]
 
-  const totalPrice = calculateTotalPrice(astroHop)
+  const totalPrice = calculateTotalPrice(classToGetPrices)
 
   return (
     <div>

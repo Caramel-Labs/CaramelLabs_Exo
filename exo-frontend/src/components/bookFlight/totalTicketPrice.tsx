@@ -17,14 +17,14 @@ export default function TotalTicketPrice(props: totalPriceProps) {
   useEffect(() => {
     const calculatePriceBasedOnClass = () => {
       switch (props.currentClass) {
-        case "Cosmo":
+        case "Cosmo Cruiser":
           return calculateTicketPrice(
             props.cosmoCruiserPrice,
             props.passengerCount
           )
-        case "Orion":
+        case "Orion Lux":
           return calculateTicketPrice(props.orionLuxPrice, props.passengerCount)
-        case "Astro":
+        case "Astro Hop":
           return calculateTicketPrice(props.astroHopPrice, props.passengerCount)
         default:
           return "0" // Default value if currentClass is not recognized

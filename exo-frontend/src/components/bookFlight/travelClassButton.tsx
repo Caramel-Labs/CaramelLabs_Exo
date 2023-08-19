@@ -9,7 +9,7 @@ type travelClassButtonProps = {
 //@dev store the icon svgs here and jsut take a prop to match required svg to the button
 export default function TravelClassButton(props: travelClassButtonProps) {
   const handleClick = () => {
-    props.setCurrentClass(props.name1) // Update the currentClass state
+    props.setCurrentClass(props.name1 + " " + props.name2) // Update the currentClass state
   }
 
   return (

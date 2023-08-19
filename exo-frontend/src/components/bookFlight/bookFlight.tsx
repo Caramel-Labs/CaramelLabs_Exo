@@ -31,8 +31,7 @@ export default function BookFlight(props: any) {
   function onHandleClick() {
     setFormData({
       ...formData,
-      arrival,
-      departure,
+      ...props.props.props,
       currentClass,
       passengerCount,
       isBusinessTrip,

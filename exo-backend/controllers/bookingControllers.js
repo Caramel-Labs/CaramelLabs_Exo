@@ -58,7 +58,8 @@ const createBooking = asyncHandler(async (req, res) => {
     price: Joi.number().required(),
     seats: Joi.array().items(Joi.string()),
   });
-
+  
+   console.log("Recieved object",req.body)
   const result = schema.validate(req.body);
   if (result.error) {
     res.status(400).send(result.error.details[0].message);
