@@ -12,7 +12,7 @@ type seatButtonProps = {
 const SeatButton: React.FC<seatButtonProps> = (props) => {
   return (
     <div className="seat-button">
-      <button className={`w-9 h-9 text-xs font-bold rounded-lg ${props.aisle ? "bg-black" : "bg-white text-black"} ${props.availability ? "bg-white text-black" : "bg-gray-900"} ${props.seatStatus}`}>
+      <button className={`w-9 h-9 text-xs font-bold rounded-lg ${props.aisle ? "bg-black text-white" : "bg-white text-black"} ${props.availability ? "bg-white text-black" : "bg-gray-900 text-white"} ${props.seatStatus}`}>
         {props.seatNumber}
       </button>
     </div>
