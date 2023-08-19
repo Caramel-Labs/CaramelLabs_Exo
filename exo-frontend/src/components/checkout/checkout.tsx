@@ -6,6 +6,7 @@ import handleBooking from "@/utils/handleBooking"
 import getCards from "@/utils/getCards"
 
 export default async function Checkout(props: any) {
+  console.log(`Props are ${props.props[0]}`)
   const { cosmoCruiser, orionLux, astroHop } = props.props[0]
   const cards = await getCards()
 

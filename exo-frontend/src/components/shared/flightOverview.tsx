@@ -1,6 +1,6 @@
 import BookingDateAndTime from "./bookingDateAndTime"
 import SpacePortName from "./spacePortName"
-import convertDateFromISO from "../../utils/convertDateFromISO"
+import convertDateFromISO from "../../utils/formatDate"
 import Image from "next/image"
 
 type flightOverviewProps = {
@@ -35,7 +35,12 @@ export default function FlightOverview(props: flightOverviewProps) {
 
       {/* Rocket */}
       <div>
-        <Image src={'/forward-rocket.png'} alt="Rocket moving forward" width={133} height={21} />
+        <Image
+          src={"/forward-rocket.png"}
+          alt="Rocket moving forward"
+          width={133}
+          height={21}
+        />
       </div>
 
       {/* Arrival */}
