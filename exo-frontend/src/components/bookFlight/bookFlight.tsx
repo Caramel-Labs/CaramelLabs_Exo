@@ -19,11 +19,40 @@ export default function BookFlight(props: any) {
 
   const [passengerCount, setPassengerCount] = useState(1)
   const [currentClass, setCurrentClass] = useState("Cosmo")
+  const [isBusinessTrip, setIsBusinessTrip] = useState(false)
+  const [isVeganMeal, setIsVeganMeal] = useState(false)
+  const [isVegMeal, setIsVegMeal] = useState(false)
 
   const { onHandleNext, setFormData, formData } = useFormState()
   const { arrival, departure, cosmoCruiser, orionLux, astroHop } =
     props.props.props
   console.log(props, "data cominggg")
+
+  function onHandleClick() {
+    setFormData({
+      ...formData,
+      arrival,
+      departure,
+      currentClass,
+      passengerCount,
+      isBusinessTrip,
+      isVeganMeal,
+      isVegMeal,
+    })
+    onHandleNext()
+  }
+
+  function handleTripType() {
+    setIsBusinessTrip(!isBusinessTrip)
+  }
+
+  function handleVegMeal() {
+    setIsVegMeal(!isVegMeal)
+  }
+
+  function handleVeganMeal() {
+    setIsVeganMeal(!isVeganMeal)
+  }
 
   return (
     <main className="bg-black text-white">
@@ -59,9 +88,16 @@ export default function BookFlight(props: any) {
         <SectionHeader question="Any meal preferences?" />
         <Description value="Exo will automatically check for allergens your passengers may have and avoid such foods and beverages being served to them." />
         <div className="flex flex-col mt-4 gap-y-3">
-          {labels.map((label, i) => (
-            <CheckBox key={i} label={label} />
-          ))}
+          <CheckBox
+            label="Include vegetarian meals"
+            checked={isVegMeal}
+            onChange={handleVegMeal}
+          />
+          <CheckBox
+            label="Include Vegan meals"
+            checked={isVeganMeal}
+            onChange={handleVeganMeal}
+          />
         </div>
         <div className="text-center pt-2 pb-5">
           <BlueLink text="Contact spaceport for more options" />
@@ -95,7 +131,11 @@ export default function BookFlight(props: any) {
             setCurrentClass={setCurrentClass}
           />
         </div>
-        <CheckBox label="This is a business / official trip" />
+        <CheckBox
+          label="This is a business / official trip"
+          checked={isBusinessTrip}
+          onChange={handleTripType}
+        />
       </section>
 
       {/* Line break */}
@@ -114,7 +154,7 @@ export default function BookFlight(props: any) {
           />
         </div>
         <div>
-          <BlackButton text="Get Seats" onClick={onHandleNext} />
+          <BlackButton text="Get Seats" onClick={onHandleClick} />
         </div>
       </section>
     </main>
