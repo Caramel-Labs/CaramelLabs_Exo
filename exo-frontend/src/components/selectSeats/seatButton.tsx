@@ -1,8 +1,8 @@
 type seatButtonProps = {
   seatNumber: string
-  availability: boolean
+  isAvailable: boolean
   aisle: boolean
-  seatStatus: number
+  isSelected: boolean
 }
 
 // seatStatus == 0 means the seat is not available
@@ -12,7 +12,7 @@ type seatButtonProps = {
 const SeatButton: React.FC<seatButtonProps> = (props) => {
   return (
     <div className="seat-button">
-      <button className={`w-9 h-9 text-xs font-bold rounded-lg ${props.aisle ? "bg-black text-white" : "bg-white text-black"} ${props.availability ? "bg-white text-black" : "bg-gray-900 text-white"} ${props.seatStatus}`}>
+      <button className={`w-9 h-9 text-xs font-bold rounded-lg ${props.isAvailable ? "bg-white text-black" : "bg-gray-900 text-white"} ${props.isSelected ? "bg-green-500 text-black" : ""} ${props.aisle ? "bg-black text-black" : ""}`}>
         {props.seatNumber}
       </button>
     </div>
