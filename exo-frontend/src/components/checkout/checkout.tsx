@@ -2,9 +2,30 @@ import BlueButton from "../shared/blueButton"
 import PageHeader from "../shared/pageHeader"
 import CheckoutPageInfo from "./checkoutPageInfo"
 import calculateTotalPrice from "@/utils/calculateTotalPrice"
+import handleBooking from "@/utils/handleBooking"
 
 export default function Checkout(props: any) {
   const { cosmoCruiser, orionLux, astroHop } = props.props[0]
+
+  const mockBooking = {
+    user: "61572b7c8c5f2500159407d2", // Sample ObjectId for a user
+    spaceship: "61572b7c8c5f2500159407e3", // Sample ObjectId for a spaceship
+    trip: "61572b7c8c5f2500159407f4", // Sample ObjectId for a trip
+    participants: "", // Sample ObjectId for participants
+    status: "Confirmed",
+    class: "Cosmo Cruiser",
+    tripType: "Round Trip",
+    veg: true,
+    price: 1500,
+    seats: ["A1", "A2", "B3"],
+  }
+
+  async function handleClick() {
+    const response = await handleBooking(mockBooking)
+    if (response.status === 200) {
+      console.log("Booking successful")
+    }
+  }
 
   const paymentItems = [
     { key: "Ticket price", value: astroHop.ticketPrice },
@@ -30,7 +51,11 @@ export default function Checkout(props: any) {
 
       <h2>Total Price</h2>
       <h2>{totalPrice}</h2>
-      <BlueButton sgcLogo={true} text="Authorize Payment" />
+      <BlueButton
+        sgcLogo={true}
+        text="Authorize Payment"
+        onClick={handleClick}
+      />
     </div>
   )
 }
