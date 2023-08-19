@@ -62,6 +62,7 @@ const createBooking = asyncHandler(async (req, res) => {
   const result = schema.validate(req.body);
   if (result.error) {
     res.status(400).send(result.error.details[0].message);
+    console.log("Error in the Joi validation");
     return;
   }
 
