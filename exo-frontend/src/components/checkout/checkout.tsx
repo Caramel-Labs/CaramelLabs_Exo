@@ -1,3 +1,5 @@
+"use client"
+
 import BlueButton from "../shared/blueButton"
 import PageHeader from "../shared/pageHeader"
 import CheckoutPageInfo from "./checkoutPageInfo"
@@ -34,11 +36,11 @@ export default function Checkout() {
   const totalPrice = calculateTotalPrice(classToGetPrices)
 
   return (
-    <div>
+    <main>
       <PageHeader title="Payment" />
-      <section>
-        <p>Swipe left to select a StarGate Corporation card.</p>
-        <p>The fucking credit carrrrd</p>
+      <section className="mt-4">
+        <p className="text-xs text-gray-600 flex justify-center">Swipe left to select a StarGate Corporation card.</p>
+        <p className="flex justify-center mt-6">The fucking credit carrrrd</p>
       </section>
 
       <section>
@@ -47,13 +49,18 @@ export default function Checkout() {
         ))}
       </section>
 
-      <h2>Total Price</h2>
-      <h2>{totalPrice}</h2>
-      <BlueButton
-        sgcLogo={true}
-        text="Authorize Payment"
-        onClick={handleClick}
-      />
-    </div>
+      <section className="text-lg flex justify-between font-bold mt-4">
+        <p>Total Price</p>
+        <p>{totalPrice} CR</p>
+      </section>
+
+      <section className="flex justify-center items-center mt-16">
+        <BlueButton
+          sgcLogo={true}
+          text="Authorize Payment"
+          onClick={handleClick}
+        />
+      </section>
+    </main>
   )
 }

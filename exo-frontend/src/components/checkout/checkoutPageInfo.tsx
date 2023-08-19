@@ -5,9 +5,12 @@ type checkoutPageInfoProps = {
 
 export default function CheckoutPageInfo(props: checkoutPageInfoProps) {
   return (
-    <div className="">
-      <h4>{props.title}</h4>
-      <p>{props.value} CR</p>
-    </div>
+    <main>
+      <div className="flex justify-between text-xs my-6">
+        <p>{props.title}</p>
+        <p className="font-bold">{props.value} CR</p>
+      </div>
+      <hr />
+    </main>
   )
 }
