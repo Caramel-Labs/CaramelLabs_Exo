@@ -1,5 +1,6 @@
 import BookFlight from "@/components/bookFlight/bookFlight"
 import SelectSeats from "@/components/selectSeats/selectSeats"
+import getTripData from "@/utils/getTripData"
 
 export default async function Booking() {
   const data = await getTripData()

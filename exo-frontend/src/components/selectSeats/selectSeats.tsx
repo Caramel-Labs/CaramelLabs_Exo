@@ -10,7 +10,11 @@ export default function SelectSeats() {
 
             {/* Image of flight class */}
             <section className="mt-4">
-                <Image src={'/cosmo-cruiser.webp'} alt="Flight class" width={328} height={220} className="rounded-lg" />
+                <Image src={'/cosmo-cruiser.webp'}
+                       alt="Flight class"
+                       width={328}
+                       height={220}
+                       className="rounded-lg" />
             </section>
 
             {/* Name of flight class */}
@@ -26,31 +30,31 @@ export default function SelectSeats() {
             {/* Seat arrangement */}
             <section className="mt-8 grid grid-cols-7 grid-rows-3 gap-3">
                 {/* First row */}
-                <SeatButton seatNumber="C1" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C2" availablity={false} aisle={false} />
-                <SeatButton seatNumber="X" availablity={false} aisle={true} />
-                <SeatButton seatNumber="X" availablity={false} aisle={true} />
-                <SeatButton seatNumber="X" availablity={false} aisle={true} />
-                <SeatButton seatNumber="C3" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C4" availablity={false} aisle={false} />
+                <SeatButton seatNumber="C1" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C2" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="X" availability={false} aisle={true} seatStatus={0} />
+                <SeatButton seatNumber="X" availability={false} aisle={true} seatStatus={0} />
+                <SeatButton seatNumber="X" availability={false} aisle={true} seatStatus={0} />
+                <SeatButton seatNumber="C3" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C4" availability={false} aisle={false} seatStatus={0} />
 
                 {/* Second row */}
-                <SeatButton seatNumber="C5" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C6" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C7" availablity={false} aisle={false} />
-                <SeatButton seatNumber="X" availablity={false} aisle={true} />
-                <SeatButton seatNumber="C8" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C9" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C10" availablity={false} aisle={false} />
+                <SeatButton seatNumber="C5" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C6" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C7" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="X" availability={false} aisle={true} seatStatus={0} />
+                <SeatButton seatNumber="C8" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C9" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C10" availability={false} aisle={false} seatStatus={0} />
 
                 {/* Third row */}
-                <SeatButton seatNumber="C11" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C12" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C13" availablity={false} aisle={false} />
-                <SeatButton seatNumber="X" availablity={false} aisle={true} />
-                <SeatButton seatNumber="C14" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C15" availablity={false} aisle={false} />
-                <SeatButton seatNumber="C16" availablity={false} aisle={false} />
+                <SeatButton seatNumber="C11" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C12" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C13" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="X" availability={false} aisle={true} seatStatus={0} />
+                <SeatButton seatNumber="C14" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C15" availability={false} aisle={false} seatStatus={0} />
+                <SeatButton seatNumber="C16" availability={false} aisle={false} seatStatus={0} />
             </section>
         </main>
     )
