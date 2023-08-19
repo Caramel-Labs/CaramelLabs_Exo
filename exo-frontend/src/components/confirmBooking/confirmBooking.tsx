@@ -75,7 +75,7 @@ export default function ConfirmBooking() {
       </section>
 
       {/* Trip overview */}
-      <section>
+      <section className="mt-8">
         <FlightOverview arrival={arrival} departure={departure} />
       </section>
 
@@ -98,16 +98,16 @@ export default function ConfirmBooking() {
       </section>
 
       {/* Miscellaneous info */}
-      <section className="grid grid-cols-2">
+      <section className="grid grid-cols-2 gap-y-6">
         <ConfirmationPageInfo title="Terminal" value={departure.terminal} />
         <ConfirmationPageInfo title="Class" value={currentClass} />
         <ConfirmationPageInfo
           title="Trip Type"
-          value={isBusinessTrip ? "Business" : "Personal(Family)"}
+          value={isBusinessTrip ? "Business" : "Personal (Family)"}
         />
         <ConfirmationPageInfo
           title="Meal Preferences"
-          value={isVegMeal ? "Vegetarian" : isVeganMeal ? "Vegan" : "none"}
+          value={isVegMeal ? "Vegetarian" : isVeganMeal ? "Vegan" : "None"}
         />
       </section>
 
