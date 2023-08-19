@@ -171,7 +171,10 @@ export default function SelectSeats() {
         />
       </section>
 
-      <BlueButton text="Continue" sgcLogo={false} onClick={onHandleNext} />
+      {/* Continue button */}
+      <section className="flex justify-center items-center mt-16">
+        <BlueButton text="Continue" sgcLogo={false} onClick={onHandleNext} />
+      </section>
     </main>
   )
 }
