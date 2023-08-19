@@ -1,8 +1,10 @@
 const express = require("express");
-const { fetchBoardingPasses } = require("../controllers/userControllers");
+const { fetchAllBoardingPasses } = require("../controllers/userControllers");
+const { fetchaBoardingPass } = require("../controllers/userControllers");
 
 const router = express.Router();
 
-router.route("/boardingPass").post(fetchBoardingPasses);
+router.route("/boardingPasses").post(fetchAllBoardingPasses);
+router.route("/boardingPass").post(fetchaBoardingPass);
 
 module.exports = router;

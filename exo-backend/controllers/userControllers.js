@@ -10,7 +10,7 @@ const { tripModel } = require("../Models/tripModel");
 //@route           POST /api/booking/boardingPasses
 //@access          --
 //****************************************************** */
-const fetchBoardingPasses = asyncHandler(async (req, res) => {
+const fetchAllBoardingPasses = asyncHandler(async (req, res) => {
   try {
     const userObjectId = new mongoose.Types.ObjectId(req.body._id);
 
@@ -18,8 +18,9 @@ const fetchBoardingPasses = asyncHandler(async (req, res) => {
       .find({
         participants: userObjectId,
       })
-      .populate("spaceship")
-      .populate("trip")
+      .select({ class: 1, spaceship: 1, trip: 1 })
+      .populate("spaceship", "name")
+      .populate("trip", "arrival departure")
       .exec();
 
     if (userBookings.length > 0) {
@@ -35,6 +36,36 @@ const fetchBoardingPasses = asyncHandler(async (req, res) => {
   }
 });
 
+//****************************************************** */
+//@description     fetch a specific Boarding Pass
+//@route           POST /api/booking/boardingPass
+//@access          --
+//****************************************************** */
+const fetchaBoardingPass = asyncHandler(async (req, res) => {
+  try {
+    const Booking = await bookingModel
+      .find({
+        _id: req.body._id,
+      })
+      .select({ class: 1, spaceship: 1, trip: 1 })
+      .populate("spaceship", "name")
+      .populate("trip", "arrival departure")
+      .exec();
+
+    if (Booking) {
+      res.status(200).json(Booking);
+      console.log(Booking);
+    } else {
+      res.status(404).json({ message: "invalide booking _id" });
+      console.log("The user does not have any matching bookings for that _id");
+    }
+  } catch (error) {
+    res.status(400).json({ message: "Error in fetchaBoardingPass function" });
+    console.log("Error in the fetchaBoardingPass function:", error);
+  }
+});
+
 module.exports = {
-  fetchBoardingPasses,
+  fetchAllBoardingPasses,
+  fetchaBoardingPass,
 };
