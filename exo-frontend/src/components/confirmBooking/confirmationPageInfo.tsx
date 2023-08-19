@@ -6,8 +6,8 @@ type confirmationPageInfoProps = {
 export default function ConfirmationPageInfo(props: confirmationPageInfoProps) {
   return (
     <header className="">
-      <h4>{props.title}</h4>
-      <p> {props.value}</p>
+      <h4 className="text-xs text-gray-400 mb-1">{props.title}</h4>
+      <p className="font-bold">{props.value}</p>
     </header>
   )
 }
