@@ -12,10 +12,10 @@ export default function ConfirmBooking(props: any) {
   return (
     <div>
       <PageHeader title="Confirm Booking" />
-      <section className="flex justify-around">
-        <p>JFK</p>
-        <p>Rockit</p>
-        <p>GRS</p>
+      <section>
+        <p>{arrival.location}</p>
+        <p> rocketttttttttt</p>
+        <p>{departure.location}</p>
       </section>
 
       <section>
