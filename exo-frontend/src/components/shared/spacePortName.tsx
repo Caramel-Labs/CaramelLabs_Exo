@@ -3,5 +3,5 @@ type spacePortNameProps = {
 }
 
 export default function SpacePortName(props: spacePortNameProps) {
-  return <h4>{props.name}</h4>
+  return <h4 className="text-white/40 font-bold text-xl">{props.name}</h4>
 }

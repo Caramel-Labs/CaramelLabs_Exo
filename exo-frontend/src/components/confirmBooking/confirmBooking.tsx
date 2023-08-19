@@ -12,6 +12,7 @@ export default function ConfirmBooking(props: any) {
   return (
     <div>
       <PageHeader title="Confirm Booking" />
+
       <section className="flex justify-around">
         <p>{arrival.location}</p>
         <p>Rokit</p>
@@ -32,7 +33,9 @@ export default function ConfirmBooking(props: any) {
         <ConfirmationPageInfo title="terminal" value="" />
       </section>
 
-      <BlueButton text="Continue to payment" sgcLogo={false} />
+      <section className="flex justify-center items-center">
+        <BlueButton text="Continue to payment" sgcLogo={false} />
+      </section>
     </div>
   )
 }
