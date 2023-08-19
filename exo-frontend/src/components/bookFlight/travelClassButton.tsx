@@ -15,7 +15,7 @@ export default function TravelClassButton(props: travelClassButtonProps) {
   return (
     <div className="text-white">
       <button
-        className="bg-blue-500 hover:bg-blue-700 flex flex-col rounded-lg w-24 h-24 justify-center items-center"
+        className="bg-zinc-800 focus:bg-blue-600 flex flex-col rounded-lg w-24 h-24 justify-center items-center"
         onClick={handleClick}
       >
         <p className="text-4xl font-bold">{props.icon}</p>
