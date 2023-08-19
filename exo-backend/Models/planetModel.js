@@ -12,6 +12,8 @@ const planetSchema = new mongoose.Schema({
   //still not complete ... this suitable only for booking flow
 });
 
+planetSchema.set("strictPopulate", false);
+
 const planetModel = mongoose.model("planets", planetSchema);
 
 module.exports = { planetModel };

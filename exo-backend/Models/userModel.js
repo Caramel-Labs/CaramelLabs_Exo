@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const genders = ["Male", "Female", "Non-Binary"];
 
 const userSchema = new mongoose.Schema({
+  quantumEncryptionKey: String,
   name: String,
   img: String,
   verification: String, // **********problem************
@@ -26,8 +27,8 @@ const userSchema = new mongoose.Schema({
     planet: String,
     region: String,
   },
-  quantumEncryptionKey: String,
 });
+userSchema.set("strictPopulate", false);
 
 const userModel = mongoose.model("users", userSchema);
 

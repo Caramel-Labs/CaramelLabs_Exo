@@ -52,7 +52,7 @@ export default function BookFlight(props: any) {
         <UserAvatar src="../public/next.svg" firstName="" lastName="" />
       </section>
 
-      {/* Meal Preferences */}
+      {/* Meal preferences */}
       <section>
         <SectionHeader question="Any meal preferences?" />
         <Description value="Exo will automatically check for allergens your passengers may have and avoid such foods and beverages being served to them." />

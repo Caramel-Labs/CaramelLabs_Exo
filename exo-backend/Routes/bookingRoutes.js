@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.route("/").post(fetchTripDetails);
 router.route("/create").post(createBooking);
-//router.route("/seats").get(fetchSpaceshipDetails);
+//router.route("/boardingPasses").get(fetchSpaceshipDetails);
 router.route("/seats").post(bookedSeats);
 
 module.exports = router;

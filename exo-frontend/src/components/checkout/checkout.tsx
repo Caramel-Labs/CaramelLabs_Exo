@@ -1,6 +1,6 @@
 import BlueButton from "../shared/blueButton"
 import PageHeader from "../shared/pageHeader"
-import CheckoutPageInfo from "./checkouPageInfo"
+import CheckoutPageInfo from "./checkoutPageInfo"
 import calculateTotalPrice from "@/utils/calculateTotalPrice"
 import handleBooking from "@/utils/handleBooking"
 
@@ -49,7 +49,7 @@ export default function Checkout(props: any) {
         ))}
       </section>
 
-      <h2> Total Price</h2>
+      <h2>Total Price</h2>
       <h2>{totalPrice}</h2>
       <BlueButton
         sgcLogo={true}
