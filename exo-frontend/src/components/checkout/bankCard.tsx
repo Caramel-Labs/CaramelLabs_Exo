@@ -1,7 +1,23 @@
+import { useState, useEffect } from "react";
+
 type bankCardProps = {
   balance: number
   cardNumber: string
 }
+
+const gradients = [
+    "bg-gradient-to-b from-red-500 to-yellow-500",
+    "bg-gradient-to-b from-orange-400 to-cyan-500",
+    "bg-gradient-to-b from-green-400 to-blue-500",
+    "bg-gradient-to-b from-sky-500 to-indigo-500",
+    "bg-gradient-to-b from-violet-500 to-fuchsia-500",
+    // Add more gradient combinations as necessarys
+];
+
+const getRandomGradient = () => {
+    const randomIndex = Math.floor(Math.random() * gradients.length);
+    return gradients[randomIndex];
+};
 
 // Format bank balance with commas and a space every 3 digits
 const formatNumberWithCommas = (number: number) => {
@@ -24,8 +40,19 @@ export default function BankCard(props: bankCardProps) {
     const formattedBalance = formatNumberWithCommas(props.balance);
     const formattedCardNumber = formatCardNumber(props.cardNumber);
 
+    // const randomGradient = getRandomGradient();
+
+    // State to hold the randomly generated gradient
+    const [randomGradient, setRandomGradient] = useState("");
+
+    // Generate random gradient once when the component mounts
+    useEffect(() => {
+    setRandomGradient(getRandomGradient());
+    }, []);
+
+
     return (
-        <main className="w-[19.5rem] mx-2 h-44 bg-gradient-to-b from-cyan-500 to-blue-500 rounded-lg p-4 flex flex-col justify-between">
+        <main className={`w-[19.5rem] mx-2 h-44 ${randomGradient} rounded-lg p-4 flex flex-col justify-between`}>
             <div className="flex justify-between">
                 <div className="font-bold">
                     <p className="text-sm mb-1">Balance</p>
