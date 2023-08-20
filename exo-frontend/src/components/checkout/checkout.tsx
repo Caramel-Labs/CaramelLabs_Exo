@@ -4,6 +4,7 @@ import BlueButton from "../shared/blueButton"
 import PageHeader from "../shared/pageHeader"
 import CheckoutPageInfo from "./checkoutPageInfo"
 import calculateTotalPrice from "@/utils/calculateTotalPrice"
+import BankCard from "./bankCard"
 import getCards from "@/utils/getCards"
 import { useFormState } from "@/context/bookingFormContext"
 import handleBookingConfirmation from "@/utils/handleBookingConfirmation"
@@ -50,7 +51,9 @@ export default function Checkout() {
         <p className="text-xs text-gray-600 flex justify-center">
           Swipe left to select a StarGate Corporation card.
         </p>
-        <p className="flex justify-center mt-6">The fucking credit carrrrd</p>
+        <div className="mt-6">
+          <BankCard balance={180346} cardNumber={"1111 2222 3333 4444"} />
+        </div>
       </section>
 
       <section>

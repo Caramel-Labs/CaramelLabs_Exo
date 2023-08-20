@@ -18,7 +18,7 @@ export default function SelectSeats() {
 
   return (
     <main className="bg-black text-white">
-      <PageHeader title="Select Seats" />
+      <PageHeader title="Select Seats" onHandleBack={onHandleBack} />
 
       {/* Image of flight class */}
       <section className="mt-4">

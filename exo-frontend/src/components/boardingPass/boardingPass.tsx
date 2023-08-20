@@ -12,7 +12,7 @@ export default async function BoardingPass() {
   const boardingPassData = await getBoardingPass()
   //console.log("This object", boardingPassData[0])
 
-  const { spaceship, trip } = boardingPassData[0]
+  const { spaceship, trip } = boardingPassData
   console.log("this is the trip", trip[0])
 
   const passDateAndTime = formatDate(trip[0].departure.date)
@@ -22,7 +22,7 @@ export default async function BoardingPass() {
     { key: "Time", value: passDateAndTime[1] },
     { key: "Terminal", value: trip[0].departure.terminal },
     { key: "Spaceship Number", value: spaceship.name },
-    { key: "Class", value: boardingPassData[0].class },
+    { key: "Class", value: boardingPassData.class },
     { key: "Children", value: "None" },
   ]
 
