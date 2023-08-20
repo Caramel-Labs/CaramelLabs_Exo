@@ -7,7 +7,7 @@ type UserAvatarProps = {
 }
 export default function UserAvatar(props: UserAvatarProps) {
   return (
-    <div>
+    <main>
       <Image
         className="rounded-full"
         src={props.src}
@@ -18,6 +18,6 @@ export default function UserAvatar(props: UserAvatarProps) {
 
       <p className={`${props.lastName && ""} `}> {props.firstName}</p>
       <p className={`${props.lastName && ""} `}> {props.lastName}</p>
-    </div>
+    </main>
   )
 }
