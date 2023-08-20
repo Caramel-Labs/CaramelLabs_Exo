@@ -12,10 +12,14 @@ export default function TravelClassButton(props: travelClassButtonProps) {
     props.setCurrentClass(props.name1 + " " + props.name2) // Update the currentClass state
   }
 
+  const isSelected = props.currentClass === props.name1 + " " + props.name2
+
   return (
     <div className="text-white">
       <button
-        className="bg-zinc-800 focus:bg-blue-600 flex flex-col rounded-lg w-24 h-24 justify-center items-center"
+        className={`bg-zinc-800 flex flex-col rounded-lg w-24 h-24 justify-center items-center ${
+          isSelected && "bg-blue-600"
+        }`}
         onClick={handleClick}
       >
         <p className="text-4xl font-bold">{props.icon}</p>
