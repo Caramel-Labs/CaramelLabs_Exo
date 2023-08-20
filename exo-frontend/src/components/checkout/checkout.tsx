@@ -9,9 +9,18 @@ import getCards from "@/utils/getCards"
 import { useFormState } from "@/context/bookingFormContext"
 import handleBookingConfirmation from "@/utils/handleBookingConfirmation"
 import { useEffect, useState } from "react"
+import BankCardCarousel from "./bankCardCarousel"
 
 export default function Checkout() {
   const [cards, setCards] = useState([])
+
+  // added by Ravindu
+  const bankCards = [
+    { balance: 123456, cardNumber: '1111 2222 3333 4444' },
+    { balance: 789654, cardNumber: '5555 8888 9999 6666' },
+    { balance: 456982, cardNumber: '7777 2222 6666 2244' },
+    // Add more cards as needed
+  ];
 
   const { onHandleNext, onHandleBack, formData } = useFormState()
   const { cosmoCruiser, orionLux, astroHop, currentClass } = formData
@@ -68,7 +77,7 @@ export default function Checkout() {
           Swipe left to select a StarGate Corporation card.
         </p>
         <div className="mt-6">
-          <BankCard balance={180346} cardNumber={"1111 2222 3333 4444"} />
+          <BankCardCarousel bankCards={bankCards}/>
         </div>
       </section>
 
