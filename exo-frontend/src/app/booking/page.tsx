@@ -1,5 +1,4 @@
 import getTripData from "@/utils/getTripData"
-// import ActiveStepForm from "@/components/shared/ActiveStepFrom"
 import BookingStepForm from "@/components/shared/BookingStepFrom"
 
 export default async function Booking() {

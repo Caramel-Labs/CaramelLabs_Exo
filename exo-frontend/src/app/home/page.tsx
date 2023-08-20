@@ -1,5 +1,9 @@
-export default function Home() {
+import BoardingPass from "@/components/boardingPass/boardingPass"
+
+export default async function Home() {
   return (
-    <main></main>
+    <main>
+      <BoardingPass />
+    </main>
   )
 }
