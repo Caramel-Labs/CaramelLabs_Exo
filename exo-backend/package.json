@@ -4,7 +4,7 @@
   "description": "This is the backend codebase of the Exo app.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Caramel Labs",
   "license": "ISC",
@@ -16,5 +16,8 @@
     "joi": "^17.9.2",
     "mongoose": "^7.4.3",
     "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "jest": "^29.6.2"
   }
 }
