@@ -2,7 +2,7 @@
 
 <img src="./assets/thumbnail.png">
 
-> *"If offered a seat on a rocket ship, don't ask what seat. Just get on."* — Christa McAuliffe
+> _"If offered a seat on a rocket ship, don't ask what seat. Just get on."_ — Christa McAuliffe
 
 ## Interplanetary Travel at Your Fingertips
 
@@ -10,9 +10,7 @@ Welcome to Exo, your gateway to seamless interplanetary travel in the year 2160.
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Table of Contents](#table-of-contents)
-- [Monorepo Structure](#monorepo-structure)
+- [The Codebase](#the-codebase)
 - [Usage](#usage)
 - [Assumptions](#assumptions)
 - [Limitations](#limitations)
