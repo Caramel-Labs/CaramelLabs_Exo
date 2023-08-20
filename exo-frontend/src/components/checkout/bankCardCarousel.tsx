@@ -19,10 +19,11 @@ export default function BankCardCarousel(props: bankCardCarouselProps) {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        arrows: false,
     };
 
     return (
-        <main>
+        <main className="">
             <Slider {...settings}>
                 {props.bankCards.map((bankCard, index) => (
                     <div key={index}>
