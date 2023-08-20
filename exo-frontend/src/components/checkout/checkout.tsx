@@ -5,6 +5,7 @@ import PageHeader from "../shared/pageHeader"
 import CheckoutPageInfo from "./checkoutPageInfo"
 import calculateTotalPrice from "@/utils/calculateTotalPrice"
 import handleBooking from "@/utils/handleBooking"
+import BankCard from "./bankCard"
 import getCards from "@/utils/getCards"
 import { useFormState } from "@/context/bookingFormContext"
 import { on } from "process"
@@ -40,7 +41,9 @@ export default function Checkout() {
       <PageHeader title="Payment" />
       <section className="mt-4">
         <p className="text-xs text-gray-600 flex justify-center">Swipe left to select a StarGate Corporation card.</p>
-        <p className="flex justify-center mt-6">The fucking credit carrrrd</p>
+        <div className="mt-6">
+          <BankCard />
+        </div>
       </section>
 
       <section>
