@@ -8,15 +8,6 @@
 
 Welcome to Exo, your gateway to seamless interplanetary travel in the year 2160. Embark on a journey through the Solar System, explore distant planets, and experience the universe like never before. Exo is your invitation to embark on a voyage of discovery and adventure.
 
-## Table of Contents
-
-- [The Codebase](#the-codebase)
-- [Usage](#usage)
-- [Assumptions](#assumptions)
-- [Limitations](#limitations)
-- [Future Improvements](#future-improvements)
-- [Meet the Developers](#meet-the-developers)
-
 ## The Codebase
 
 Exo follows a "monorepo" structure to keep both frontend and backend code organized as intuitively as possible. The project is divided into two main folders: `exo-frontend` and `exo-backend`.
@@ -88,30 +79,6 @@ node index.js
 After both the frontend and backend servers have been started, visit `http://localhost:3000` from your browser.
 
 Separate information about the various architectures, technologies and design decisions for the frontend and backend can be found in their respective folders.
-
-## Assumptions
-
-During the development of Exo, we made the following assumptions:
-
-- Advanced AI and automation manage travel logistics for a smooth experience.
-- Secure and universal digital currencies are used for transactions.
-- Holographic interfaces provide an immersive user experience.
-
-## Limitations
-
-While developing Exo, we encountered a few limitations:
-
-- Realistic simulation of interplanetary travel wasn't feasible due to current technology.
-- Legal and ethical concerns around planetary colonization influenced certain design choices.
-- Varying planetary conditions added complexity to travel planning.
-
-## Future Improvements
-
-We're committed to enhancing Exo with the following features:
-
-- Integration of real-time planetary weather updates for informed travel decisions.
-- Enhanced AI-driven personalization for each user's travel preferences.
-- Collaboration with planetary scientists to provide in-depth exploration guides.
 
 ## Meet the Team
 
