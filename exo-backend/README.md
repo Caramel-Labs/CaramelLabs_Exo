@@ -1,6 +1,6 @@
 # Exo (Backend)
 
-Welcome to the backend codebase of the Exo app. The backend has been built as ann ExpressJS app.
+Welcome to the backend codebase of the Exo app. The backend has been built as an ExpressJS app powered by MongoDB, Cloudinary and more.
 
 <b>IMPORTANT: This project is still under construction.</b>
 
