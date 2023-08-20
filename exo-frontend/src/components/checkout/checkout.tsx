@@ -42,7 +42,7 @@ export default function Checkout() {
       <section className="mt-4">
         <p className="text-xs text-gray-600 flex justify-center">Swipe left to select a StarGate Corporation card.</p>
         <div className="mt-6">
-          <BankCard />
+          <BankCard balance={180346} cardNumber={'1111 2222 3333 4444'} />
         </div>
       </section>
 
