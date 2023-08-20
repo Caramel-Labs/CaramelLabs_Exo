@@ -18,7 +18,7 @@ export default function BookFlight(props: any) {
   const labels = ["Include vegetarian meals", "Include vegan meals"]
 
   const [passengerCount, setPassengerCount] = useState(1)
-  const [currentClass, setCurrentClass] = useState("Cosmo")
+  const [currentClass, setCurrentClass] = useState("")
   const [isBusinessTrip, setIsBusinessTrip] = useState(false)
   const [isVeganMeal, setIsVeganMeal] = useState(false)
   const [isVegMeal, setIsVegMeal] = useState(false)
