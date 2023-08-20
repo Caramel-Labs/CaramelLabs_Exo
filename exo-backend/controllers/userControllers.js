@@ -44,7 +44,7 @@ const fetchAllBoardingPasses = asyncHandler(async (req, res) => {
 const fetchaBoardingPass = asyncHandler(async (req, res) => {
   try {
     const Booking = await bookingModel
-      .find({
+      .findById({
         _id: req.body._id,
       })
       .select({ class: 1, spaceship: 1, trip: 1 })

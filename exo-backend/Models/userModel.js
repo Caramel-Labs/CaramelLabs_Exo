@@ -12,14 +12,18 @@ const userSchema = new mongoose.Schema({
     enum: genders,
   },
   dob: Date,
-  bookedTrips: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "trips",
-  },
-  savedCards: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "cards",
-  },
+  bookedTrips: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "trips",
+    },
+  ],
+  savedCards: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "cards",
+    },
+  ],
   occupation: [String],
   bloodGroup: String,
   authorizedLevel: String,

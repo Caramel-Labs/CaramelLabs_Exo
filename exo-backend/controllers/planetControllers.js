@@ -25,7 +25,7 @@ const fetchAllPlanets = asyncHandler(async (req, res) => {
 //****************************************************** */
 const fetchaPlanet = asyncHandler(async (req, res) => {
   try {
-    const planet = await planetModel.find({
+    const planet = await planetModel.findOne({
       name: req.params.name,
     });
 
