@@ -1,8 +1,4 @@
-import BookFlight from "@/components/bookFlight/bookFlight"
-import Checkout from "@/components/checkout/checkout"
-import SelectSeats from "@/components/selectSeats/selectSeats"
 import getTripData from "@/utils/getTripData"
-import ConfirmBooking from "@/components/confirmBooking/confirmBooking"
 import ActiveStepForm from "@/components/shared/ActiveStepFrom"
 
 export default async function Booking() {
