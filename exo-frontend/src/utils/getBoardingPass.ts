@@ -1,6 +1,6 @@
 export default async function getBoardingPass(): Promise<any> {
     const passId = {
-      _id: "64df1d6d660b27f90c195a3a",
+        _id: "64e0d0ebaf0e95c173313169"
     };
   
     try {
@@ -19,8 +19,8 @@ export default async function getBoardingPass(): Promise<any> {
       }
   
       const data = await response.json();
-      //console.log(data, "function working");
-      return data;
+     // console.log(data, "function working");
+      return data
     } catch (error) {
       console.error("An error occurred:", error);
       throw error;
