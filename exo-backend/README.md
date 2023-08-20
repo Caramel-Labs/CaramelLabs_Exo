@@ -27,7 +27,7 @@ In theory, `Socket.IO` allowed use to display other users selecting seats in rea
 
 ### Users
 
-```json
+```js
 const genders = ["Male", "Female", "Non-Binary"];
 
 const userSchema = new mongoose.Schema({
@@ -64,7 +64,7 @@ const userSchema = new mongoose.Schema({
 
 ### Trips
 
-```json
+```js
 const tripSchema = new mongoose.Schema({
   tripName: String,
   description: String,
@@ -110,7 +110,7 @@ const tripSchema = new mongoose.Schema({
 
 ### Spaceships
 
-```json
+```js
 const spaceshipSchema = new mongoose.Schema({
   name: String,
   description: String, // owner properties to be included later
@@ -129,7 +129,7 @@ const spaceshipSchema = new mongoose.Schema({
 
 ### Planets
 
-```json
+```js
 const planetSchema = new mongoose.Schema({
   name: String,
   description: String,
@@ -145,7 +145,7 @@ const planetSchema = new mongoose.Schema({
 
 ### Bank Cards
 
-```json
+```js
 const paymentCardSchema = new mongoose.Schema({
   cardNumber: String,
   expireDate: String,
@@ -156,7 +156,7 @@ const paymentCardSchema = new mongoose.Schema({
 
 ### Bookings
 
-```json
+```js
 const bookingSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
