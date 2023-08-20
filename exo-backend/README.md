@@ -22,3 +22,168 @@ The `Socket.IO` library was used to handle concurrent requests made by the clien
 In theory, `Socket.IO` allowed use to display other users selecting seats in real-time to a user who is currently on the "Select Seats" page.
 
 <img src="./assets/web-socket-code.png">
+
+## Schemas (for Developers)
+
+### Users
+
+```json
+const genders = ["Male", "Female", "Non-Binary"];
+
+const userSchema = new mongoose.Schema({
+  quantumEncryptionKey: String,
+  name: String,
+  img: String,
+  verification: String,
+  gender: {
+    type: String,
+    enum: genders,
+  },
+  dob: Date,
+  bookedTrips: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "trips",
+    },
+  ],
+  savedCards: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "cards",
+    },
+  ],
+  occupation: [String],
+  bloodGroup: String,
+  authorizedLevel: String,
+  citizenship: {
+    planet: String,
+    region: String,
+  },
+});
+```
+
+### Trips
+
+```json
+const tripSchema = new mongoose.Schema({
+  tripName: String,
+  description: String,
+  passengers: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+  },
+  spaceship: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "spaceships",
+  },
+  arrival: {
+    date: Date,
+    location: String,
+    terminal: String,
+  },
+  departure: {
+    date: Date,
+    location: String,
+    terminal: String,
+  },
+  cosmoCruiser: {
+    ticketPrice: Number,
+    accomodationPrice: Number,
+    foodAndBeveragePrice: Number,
+    miscellaneousPrice: Number,
+  },
+  orionLux: {
+    ticketPrice: Number,
+    accomodationPrice: Number,
+    foodAndBeveragePrice: Number,
+    miscellaneousPrice: Number,
+  },
+  astroHop: {
+    ticketPrice: Number,
+    accomodationPrice: Number,
+    foodAndBeveragePrice: Number,
+    miscellaneousPrice: Number,
+  },
+  availableSeats: [String],
+});
+```
+
+### Spaceships
+
+```json
+const spaceshipSchema = new mongoose.Schema({
+  name: String,
+  description: String, // owner properties to be included later
+  availableClasses: {
+    type: [String],
+    default: ["Cosmo Cruiser", "Orion Lux", "Astro Hop"],
+  },
+  capacity: {
+    cosmoCruiser: Number,
+    orionLux: Number,
+    astroHop: Number,
+  },
+  owner: String,
+});
+```
+
+### Planets
+
+```json
+const planetSchema = new mongoose.Schema({
+  name: String,
+  description: String,
+  trips: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "trips",
+  },
+  planetImg: String,
+  galleryImages: [String],
+  // not complete yet... but suitable for booking flow
+});
+```
+
+### Bank Cards
+
+```json
+const paymentCardSchema = new mongoose.Schema({
+  cardNumber: String,
+  expireDate: String,
+  cvv: Number,
+  cardType: String,
+});
+```
+
+### Bookings
+
+```json
+const bookingSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+  },
+  spaceship: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "spaceships",
+  },
+  trip: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "trips",
+    },
+  ],
+  participants: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
+    },
+  ],
+  status: String,
+  class: String,
+  tripType: String,
+  veg: Boolean,
+  vegan: Boolean,
+  price: Number,
+  seats: [String],
+});
+```
