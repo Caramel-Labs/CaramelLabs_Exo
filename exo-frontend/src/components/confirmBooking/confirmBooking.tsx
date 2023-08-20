@@ -6,6 +6,7 @@ import FlightOverview from "../shared/flightOverview"
 import PageHeader from "../shared/pageHeader"
 import UserAvatar from "../shared/userAvatar"
 import ConfirmationPageInfo from "./confirmationPageInfo"
+import Image from "next/image"
 
 import { useFormState } from "@/context/bookingFormContext"
 
@@ -68,14 +69,18 @@ export default function ConfirmBooking() {
       <PageHeader title="Confirm Booking" onHandleBack={onHandleBack} />
 
       {/* Visualization (with planets) */}
-      <section className="flex justify-around">
-        <p>{arrival.location}</p>
-        <p>Rokit</p>
-        <p>{departure.location}</p>
+      <section className="flex flex-col justify-around">
+        <div className="flex justify-around">
+          <p>{arrival.location}</p>
+          <p>{departure.location}</p>
+        </div>
+        <div>
+          <Image src={'/visuals/one-way-visual.png'} width={317} height={132} alt="Visual" />
+        </div>
       </section>
 
       {/* Trip overview */}
-      <section className="mt-8">
+      <section className="mt-2">
         <FlightOverview arrival={arrival} departure={departure} />
       </section>
 
