@@ -4,10 +4,9 @@ import BlueButton from "../shared/blueButton"
 import PageHeader from "../shared/pageHeader"
 import CheckoutPageInfo from "./checkoutPageInfo"
 import calculateTotalPrice from "@/utils/calculateTotalPrice"
-import handleBooking from "@/utils/handleBooking"
 import getCards from "@/utils/getCards"
 import { useFormState } from "@/context/bookingFormContext"
-import { on } from "process"
+import handleBookingConfirmation from "@/utils/handleBookingConfirmation"
 
 export default function Checkout() {
   //console.log(`Props are ${props.props[0]}`)
@@ -22,8 +21,17 @@ export default function Checkout() {
       ? orionLux
       : astroHop
 
-  async function handleClick() {
-    onHandleNext()
+  async function handlePayment() {
+    try {
+      const response = await handleBookingConfirmation()
+      console.log(response, "response")
+      if (response && response.status === 200) {
+        onHandleNext()
+        console.log("Booking successful")
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const paymentItems = [
@@ -37,9 +45,11 @@ export default function Checkout() {
 
   return (
     <main>
-      <PageHeader title="Payment" />
+      <PageHeader title="Payment" onHandleBack={onHandleBack} />
       <section className="mt-4">
-        <p className="text-xs text-gray-600 flex justify-center">Swipe left to select a StarGate Corporation card.</p>
+        <p className="text-xs text-gray-600 flex justify-center">
+          Swipe left to select a StarGate Corporation card.
+        </p>
         <p className="flex justify-center mt-6">The fucking credit carrrrd</p>
       </section>
 
@@ -58,7 +68,7 @@ export default function Checkout() {
         <BlueButton
           sgcLogo={true}
           text="Authorize Payment"
-          onClick={handleClick}
+          onClick={handlePayment}
         />
       </section>
     </main>
