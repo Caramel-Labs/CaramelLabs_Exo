@@ -1,4 +1,10 @@
 import Image from "next/image"
+import { Aoboshi_One } from "next/font/google";
+
+const aoboshiOne = Aoboshi_One({
+  weight: "400",
+  preload: false,
+})
 
 type BlueButtonProps = {
   text: string
@@ -15,7 +21,7 @@ export default function BlueButton(props: BlueButtonProps) {
       onClick={props.onClick}
     >
       {props.sgcLogo && (
-        <p className="text-xs mr-4">SGC</p>
+        <p className={`${aoboshiOne.className} text-xs mr-4`}>SGC</p>
       )}
       <p>{props.text}</p>
       {/* <Image src={logoPath} height={20} width={27} alt="SGC Logo" className="mr-4" /> */}
