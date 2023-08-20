@@ -51,7 +51,7 @@ export default function SelectSeats() {
       )}
 
       {/* Continue button */}
-      <section className="flex justify-center items-center mt-16">
+      <section className="flex justify-center items-center my-16">
         <BlueButton text="Continue" sgcLogo={false} onClick={onHandleNext} />
       </section>
     </main>
