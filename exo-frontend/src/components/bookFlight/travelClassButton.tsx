@@ -23,7 +23,7 @@ export default function TravelClassButton(props: travelClassButtonProps) {
     <div className="text-white">
       <button
         className={`bg-zinc-800 flex flex-col rounded-lg w-24 h-24 justify-center items-center ${
-          isSelected && "bg-blue-700"
+          isSelected && "bg-[#027FF5]"
         }`}
         onClick={handleClick}
       >

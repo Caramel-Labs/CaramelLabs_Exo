@@ -1,4 +1,10 @@
 import Image from "next/image"
+import { Audiowide } from "next/font/google"
+
+const audiowide = Audiowide({
+  weight: "400",
+  preload: false,
+})
 
 type headerProps = {
   title: string
@@ -7,7 +13,7 @@ type headerProps = {
 
 export default function PageHeader(props: headerProps) {
   return (
-    <header className="page-header flex justify-between items-center">
+    <header className={`page-header ${audiowide.className} flex justify-between items-center`}>
       <button onClick={props.onHandleBack}>
         <Image src={"/back.png"} width={24} height={24} alt={"Back icon"} />
       </button>

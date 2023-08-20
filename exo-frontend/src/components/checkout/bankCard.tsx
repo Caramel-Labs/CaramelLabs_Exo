@@ -1,4 +1,10 @@
 import { useState, useEffect } from "react";
+import { Aoboshi_One } from "next/font/google";
+
+const aoboshiOne = Aoboshi_One({
+  weight: "400",
+  preload: false,
+})
 
 type bankCardProps = {
   balance: number
@@ -59,7 +65,7 @@ export default function BankCard(props: bankCardProps) {
                     <p className="text-xl">{formattedBalance} CR</p>
                 </div>
                 <div className="font-bold text-xl">
-                    <p>SGC</p>
+                    <p className={`${aoboshiOne.className}`}>SGC</p>
                 </div>
             </div>
             <p className="flex justify-center items-center text-xl tracking-widest">{formattedCardNumber}</p>
