@@ -74,7 +74,7 @@ export default function Checkout() {
       <PageHeader title="Payment" onHandleBack={onHandleBack} />
       <section className="mt-4">
         <p className="text-xs text-gray-600 flex justify-center">
-          Swipe left to select a StarGate Corporation card.
+          Swipe to select a StarGate Corporation card.
         </p>
         <div className="mt-6">
           <BankCardCarousel bankCards={bankCards}/>
