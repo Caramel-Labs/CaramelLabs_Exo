@@ -26,3 +26,9 @@ The frontend of the Exo app has been built using:
     └── README.md
 
 The above file structure has been deemed the most optimal, maintainable and scalable structure for Exo after multiple iterations of changing between React-centric design patterns.
+
+## Highlights
+
+Since the UI design (prototypes) of Exo were more or less "pixel-perfect" (multiples of 4 or 8 pixels nearly everywhere), development time was significantly reduced as styling pages and components with TailwindCSS was easier when following standard widths, heights, font sizes etc.
+
+add screenshots here!
