@@ -22,6 +22,8 @@ export default function BookFlight(props: any) {
   const [isBusinessTrip, setIsBusinessTrip] = useState(false)
   const [isVeganMeal, setIsVeganMeal] = useState(false)
   const [isVegMeal, setIsVegMeal] = useState(false)
+  const [handleClassSelectionError, setHandleClassSelectionError] =
+    useState(false)
 
   const { onHandleNext, setFormData, formData } = useFormState()
   const { arrival, departure, cosmoCruiser, orionLux, astroHop } =
@@ -29,16 +31,20 @@ export default function BookFlight(props: any) {
   console.log(props, "data cominggg")
 
   function onHandleClick() {
-    setFormData({
-      ...formData,
-      ...props.props.props,
-      currentClass,
-      passengerCount,
-      isBusinessTrip,
-      isVeganMeal,
-      isVegMeal,
-    })
-    onHandleNext()
+    if (currentClass) {
+      setFormData({
+        ...formData,
+        ...props.props.props,
+        currentClass,
+        passengerCount,
+        isBusinessTrip,
+        isVeganMeal,
+        isVegMeal,
+      })
+      onHandleNext()
+    } else {
+      setHandleClassSelectionError(true)
+    }
   }
 
   function handleTripType() {
@@ -130,6 +136,10 @@ export default function BookFlight(props: any) {
             setCurrentClass={setCurrentClass}
           />
         </div>
+
+        {handleClassSelectionError && (
+          <p className="text-red-600">Please Select a Class </p>
+        )}
         <CheckBox
           label="This is a business / official trip"
           checked={isBusinessTrip}
