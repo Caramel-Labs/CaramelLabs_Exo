@@ -3,21 +3,25 @@ const mongoose = require("mongoose");
 const tripSchema = new mongoose.Schema({
   tripName: String,
   description: String,
-  passengers: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "users",
-  },
+  passengers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
+    },
+  ],
   spaceship: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "spaceships",
   },
   arrival: {
     date: Date,
+    planet: String,
     location: String,
     terminal: String,
   },
   departure: {
     date: Date,
+    planet: String,
     location: String,
     terminal: String,
   },
