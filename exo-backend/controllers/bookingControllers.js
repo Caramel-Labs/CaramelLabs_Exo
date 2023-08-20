@@ -147,6 +147,7 @@ const bookedSeats = asyncHandler(async (req, res) => {
     throw new Error(error.message);
   }
 });
+
 //*********************************************** */
 //@description     Confirm Booking and add
 //                    passengers to specific trip
