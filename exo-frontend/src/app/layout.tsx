@@ -6,9 +6,18 @@ import { Inria_Sans } from "next/font/google"
 import { Aoboshi_One } from "next/font/google"
 
 const inter = Inter({ subsets: ["latin"] })
-const audiowide = Audiowide({ weight: ["400"] })
-const inriaSans = Inria_Sans({ weight: ["400"] })
-const aoboshiOne = Aoboshi_One({ weight: ["400"] })
+const audiowide = Audiowide({
+  weight: "400",
+  preload: false,
+})
+const inriaSans = Inria_Sans({
+  weight: "400",
+  preload: false,
+})
+const aoboshiOne = Aoboshi_One({
+  weight: "400",
+  preload: false,
+})
 
 export const metadata: Metadata = {
   title: "EXO",
