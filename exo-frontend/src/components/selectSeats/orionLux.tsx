@@ -36,9 +36,9 @@ export default function OrionLux() {
 
   return (
     <div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center gap-3 mt-9">
         {Array.from({ length: rows }).map((_, rowIndex) => (
-          <div className="flex gap-4" key={rowIndex}>
+          <div className="flex gap-3.5" key={rowIndex}>
             {seatLayout
               .slice(rowIndex * seatsPerRow, (rowIndex + 1) * seatsPerRow)
               .map((seatName, seatIndex) => (

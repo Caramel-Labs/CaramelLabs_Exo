@@ -4,7 +4,7 @@ export default function CosmoCruiser() {
   const seatLayout = [
     "C1",
     "C2",
-    "",
+    "X",
     "X",
     "X",
     "C6",
@@ -166,9 +166,9 @@ export default function CosmoCruiser() {
     //
 
     <div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center gap-3 mt-9">
         {Array.from({ length: rows }).map((_, rowIndex) => (
-          <div className="flex gap-4" key={rowIndex}>
+          <div className="flex gap-3.5" key={rowIndex}>
             {seatLayout
               .slice(rowIndex * seatsPerRow, (rowIndex + 1) * seatsPerRow)
               .map((seatName, seatIndex) => (
