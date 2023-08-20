@@ -1,6 +1,6 @@
 import ArticleCard from "./articleCard"
 
-export default function Attractions() {
+export default function AttractionsTab() {
   return (
     <div>
       {/* carousel */}
