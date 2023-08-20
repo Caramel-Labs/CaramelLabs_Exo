@@ -1,6 +1,6 @@
 export default async function getCards(): Promise<any> {
     const userId = {
-      _id: "64ddabe6c50e42701f869076",
+      _id: "64df1d6d660b27f90c195a3a",
     };
   
     try {

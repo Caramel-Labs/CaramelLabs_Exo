@@ -8,12 +8,28 @@ import BankCard from "./bankCard"
 import getCards from "@/utils/getCards"
 import { useFormState } from "@/context/bookingFormContext"
 import handleBookingConfirmation from "@/utils/handleBookingConfirmation"
+import { useEffect, useState } from "react"
 
 export default function Checkout() {
-  //console.log(`Props are ${props.props[0]}`)
+  const [cards, setCards] = useState([])
+
   const { onHandleNext, onHandleBack, formData } = useFormState()
   const { cosmoCruiser, orionLux, astroHop, currentClass } = formData
-  //const cards = await getCards()
+
+  useEffect(() => {
+    const fetchCards = async () => {
+      try {
+        const fetchedCards = await getCards()
+        setCards(fetchedCards.savedCards)
+      } catch (error) {
+        console.error("Error fetching cards:", error)
+      }
+    }
+
+    fetchCards()
+  }, [])
+
+  console.log(cards, "cards")
 
   const classToGetPrices =
     currentClass === "Cosmo Cruiser"
