@@ -1,18 +1,34 @@
 import ArticleCard from "./articleCard"
+import AttractionCard from "./attractionCard"
+import Subheading from "./subheading"
 
 export default function AttractionsTab() {
   return (
     <div>
-      {/* carousel */}
-      <section>
-        <h1>Most recommended</h1>
-        <p> Carouselllll arhgghghg</p>
+      {/* Carousel heading */}
+      <section className="mt-6">
+        <Subheading title={'Most Recommended'} />
       </section>
 
-      {/* trending  */}
+      {/* Carousel */}
       <section>
-        <h1>trending articles</h1>
-        <ArticleCard title="title" content="content" />
+        {/* <p>Carouselllll arhgghghg</p> */}
+        <AttractionCard />
+      </section>
+
+      {/* Trending heading */}
+      <section className="mt-6">
+        <Subheading title={'Trending Articles'} />
+      </section>
+
+      {/* Trending  */}
+      <section className="flex flex-col gap-6 mb-4">
+        <ArticleCard title="Jovian Wonders Unveiled" content="Embark on an extraordinary journey to explore Jupiter's amazing ecosystem." />
+        <ArticleCard title="Io's Fiery Spectacle" content="Embark on an extraordinary journey to explore Jupiter's amazing ecosystem." />
+        <ArticleCard title="Jovian Wonders Unveiled" content="Embark on an extraordinary journey to explore Jupiter's amazing ecosystem." />
+        <ArticleCard title="Jovian Wonders Unveiled" content="Embark on an extraordinary journey to explore Jupiter's amazing ecosystem." />
+        <ArticleCard title="Jovian Wonders Unveiled" content="Embark on an extraordinary journey to explore Jupiter's amazing ecosystem." />
+        <ArticleCard title="Jovian Wonders Unveiled" content="Embark on an extraordinary journey to explore Jupiter's amazing ecosystem." />
       </section>
     </div>
   )

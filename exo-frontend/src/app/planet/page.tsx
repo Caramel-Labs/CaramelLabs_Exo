@@ -1,5 +1,6 @@
 import Link from "next/link"
 import PlanetTab from "@/components/planet/planetTab"
+import AttractionsTab from "@/components/planet/attractionsTab"
 import PageHeader from "@/components/shared/pageHeader"
 
 export default function Planet() {
@@ -16,7 +17,10 @@ export default function Planet() {
       </div>
 
       {/* Planet */}
-      <PlanetTab />
+      {/* <PlanetTab /> */}
+
+      {/* Attractions */}
+      <AttractionsTab />
     </main>
   )
 }
