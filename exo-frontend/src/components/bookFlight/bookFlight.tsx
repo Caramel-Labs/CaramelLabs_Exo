@@ -85,7 +85,11 @@ export default function BookFlight(props: any) {
       <section>
         <SectionHeader question="Who's coming with you?" />
         <Description value="Other passengers will receive their tickets on their Exo apps." />
-        <UserAvatar src="../public/next.svg" firstName="" lastName="" />
+        <div className="flex justify-between">
+          <UserAvatar src="default.jpeg" firstName="Caeley" lastName="" />
+          <UserAvatar src="ravindu.jpeg" firstName="Ravindu" lastName="" />
+          <UserAvatar src="lasindu.jpeg" firstName="Lasindu" lastName="" />
+        </div>
       </section>
 
       {/* Meal preferences */}

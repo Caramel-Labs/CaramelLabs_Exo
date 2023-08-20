@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import BankCard from "./bankCard";
 
 type bankCardProps = {
-    balance: number
+    cardholder: string
     cardNumber: string
 }
 
