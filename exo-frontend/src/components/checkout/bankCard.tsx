@@ -7,7 +7,7 @@ const aoboshiOne = Aoboshi_One({
 })
 
 type bankCardProps = {
-  balance: number
+  cardholder: string
   cardNumber: string
 }
 
@@ -25,10 +25,10 @@ const getRandomGradient = () => {
     return gradients[randomIndex];
 };
 
-// Format bank balance with commas and a space every 3 digits
-const formatNumberWithCommas = (number: number) => {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ");
-};
+// // Format bank balance with commas and a space every 3 digits
+// const formatNumberWithCommas = (number: number) => {
+//     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ");
+// };
 
 // Format card number
 const formatCardNumber = (cardNumber: string) => {
@@ -43,7 +43,7 @@ const formatCardNumber = (cardNumber: string) => {
 
 export default function BankCard(props: bankCardProps) {
 
-    const formattedBalance = formatNumberWithCommas(props.balance);
+    // const formattedBalance = formatNumberWithCommas(props.balance);
     const formattedCardNumber = formatCardNumber(props.cardNumber);
 
     // const randomGradient = getRandomGradient();
@@ -61,8 +61,8 @@ export default function BankCard(props: bankCardProps) {
         <main className={`w-[19.5rem] mx-2 h-44 ${randomGradient} rounded-lg p-4 flex flex-col justify-between`}>
             <div className="flex justify-between">
                 <div className="font-bold">
-                    <p className="text-sm mb-1">Balance</p>
-                    <p className="text-xl">{formattedBalance} CR</p>
+                    <p className="text-xs mb-1">Cardholder</p>
+                    <p className="text-base">{props.cardholder}</p>
                 </div>
                 <div className="font-bold text-xl">
                     <p className={`${aoboshiOne.className}`}>SGC</p>
