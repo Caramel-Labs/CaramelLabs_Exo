@@ -1,6 +1,8 @@
 const express = require("express");
-const { fetchAllBoardingPasses } = require("../controllers/userControllers");
-const { fetchaBoardingPass } = require("../controllers/userControllers");
+const {
+  fetchAllBoardingPasses,
+  fetchaBoardingPass,
+} = require("../controllers/userControllers");
 
 const router = express.Router();
 

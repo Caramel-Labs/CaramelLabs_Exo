@@ -58,8 +58,8 @@ const createBooking = asyncHandler(async (req, res) => {
     price: Joi.number().required(),
     seats: Joi.array().items(Joi.string()),
   });
-  
-   console.log("Recieved object",req.body)
+
+  console.log("Recieved object", req.body);
   const result = schema.validate(req.body);
   if (result.error) {
     res.status(400).send(result.error.details[0].message);
@@ -147,9 +147,51 @@ const bookedSeats = asyncHandler(async (req, res) => {
     throw new Error(error.message);
   }
 });
+//*********************************************** */
+//@description     Confirm Booking and add
+//                    passengers to specific trip
+//@route           PUT /api/booking/confirm
+//@access          --
+//*********************************************** */
+const confirmBooking = asyncHandler(async (req, res) => {
+  try {
+    const bookingId = req.params.bookingId;
+    const { price } = req.body;
 
+    const updatedBooking = await bookingModel.findByIdAndUpdate(
+      bookingId,
+      {
+        $set: {
+          status: "Confirmed",
+          price: price,
+        },
+      },
+      { new: true }
+    );
+
+    if (!updatedBooking) {
+      return res.status(404).json({ message: "Booking not found" });
+    }
+
+    // Update passengers in the trip document
+    const tripId = updatedBooking.trip;
+    const participants = updatedBooking.participants;
+
+    await tripModel.findByIdAndUpdate(
+      tripId,
+      { $addToSet: { passengers: participants } },
+      { new: true }
+    );
+
+    return res.status(200).json(updatedBooking);
+  } catch (error) {
+    console.error("Error updating booking:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
 module.exports = {
   fetchTripDetails,
   createBooking,
   bookedSeats,
+  confirmBooking,
 };
