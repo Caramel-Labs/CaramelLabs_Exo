@@ -13,11 +13,13 @@ const tripSchema = new mongoose.Schema({
   },
   arrival: {
     date: Date,
+    planet: String,
     location: String,
     terminal: String,
   },
   departure: {
     date: Date,
+    planet: String,
     location: String,
     terminal: String,
   },

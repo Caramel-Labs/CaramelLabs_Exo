@@ -6,6 +6,38 @@ const { bookingModel } = require("../Models/bookingModel");
 const { spaceshipModel } = require("../Models/spaceshipModel");
 
 //******************************************* */
+//@description     fetch all trip details
+//@route           POST /api/booking
+//@access          --
+//******************************************* */
+const fetchallTripDetails = asyncHandler(async (req, res) => {
+  const { arrivalPlanet, departurePlanet } = req.body;
+  try {
+    const Trips = await tripModel
+      .find({
+        $and: [
+          { "arrival.planet": arrivalPlanet },
+          { "departure.planet": departurePlanet },
+        ],
+      })
+      .select({ arrival: 1, departure: 1 })
+      .exec();
+
+    if (Trips.length > 0) {
+      res.status(200).json(Trips);
+      console.log(Trips);
+    } else {
+      res.status(404).json({ message: "No trips between these planets" });
+      console.log("No trips between these planets");
+    }
+  } catch (error) {
+    res.status(400);
+    console.log("Error in fetchallTripDetails function", error);
+    throw new Error(error.message);
+  }
+});
+
+//******************************************* */
 //@description     fetch trip details
 //@route           POST /api/booking
 //@access          --
@@ -192,6 +224,7 @@ const confirmBooking = asyncHandler(async (req, res) => {
 });
 module.exports = {
   fetchTripDetails,
+  fetchallTripDetails,
   createBooking,
   bookedSeats,
   confirmBooking,
