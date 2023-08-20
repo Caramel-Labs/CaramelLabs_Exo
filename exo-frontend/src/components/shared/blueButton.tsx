@@ -15,9 +15,10 @@ export default function BlueButton(props: BlueButtonProps) {
       onClick={props.onClick}
     >
       {props.sgcLogo && (
-        <Image src={logoPath} height={20} width={27} alt="SGC Logo" className="mr-4" />
+        <p className="text-xs mr-4">SGC</p>
       )}
       <p>{props.text}</p>
+      {/* <Image src={logoPath} height={20} width={27} alt="SGC Logo" className="mr-4" /> */}
     </button>
   )
 }

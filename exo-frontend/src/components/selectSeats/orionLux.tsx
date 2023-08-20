@@ -1,4 +1,4 @@
-import SeatButton from "./seatButton"
+import SeatLayout from "./seatLayout"
 
 export default function OrionLux() {
   const seatLayout = [
@@ -35,18 +35,6 @@ export default function OrionLux() {
   const seatsPerRow = 7
 
   return (
-    <div>
-      <div className="flex flex-col items-center">
-        {Array.from({ length: rows }).map((_, rowIndex) => (
-          <div className="flex gap-4" key={rowIndex}>
-            {seatLayout
-              .slice(rowIndex * seatsPerRow, (rowIndex + 1) * seatsPerRow)
-              .map((seatName, seatIndex) => (
-                <SeatButton key={seatIndex} seatNumber={seatName} />
-              ))}
-          </div>
-        ))}
-      </div>
-    </div>
+    <SeatLayout rows={rows} seatsPerRow={seatsPerRow} seatLayout={seatLayout} />
   )
 }

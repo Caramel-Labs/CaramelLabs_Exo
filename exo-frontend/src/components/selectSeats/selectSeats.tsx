@@ -18,7 +18,7 @@ export default function SelectSeats() {
 
   return (
     <main className="bg-black text-white">
-      <PageHeader title="Select Seats" />
+      <PageHeader title="Select Seats" onHandleBack={onHandleBack} />
 
       {/* Image of flight class */}
       <section className="mt-4">
@@ -51,7 +51,7 @@ export default function SelectSeats() {
       )}
 
       {/* Continue button */}
-      <section className="flex justify-center items-center mt-16">
+      <section className="flex justify-center items-center my-16">
         <BlueButton text="Continue" sgcLogo={false} onClick={onHandleNext} />
       </section>
     </main>

@@ -2,7 +2,7 @@
 
 <img src="./assets/thumbnail.png">
 
-> *"If offered a seat on a rocket ship, don't ask what seat. Just get on."* — Christa McAuliffe
+> _"If offered a seat on a rocket ship, don't ask what seat. Just get on."_ — Christa McAuliffe
 
 ## Interplanetary Travel at Your Fingertips
 
@@ -10,9 +10,7 @@ Welcome to Exo, your gateway to seamless interplanetary travel in the year 2160.
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Table of Contents](#table-of-contents)
-- [Monorepo Structure](#monorepo-structure)
+- [The Codebase](#the-codebase)
 - [Usage](#usage)
 - [Assumptions](#assumptions)
 - [Limitations](#limitations)
@@ -56,6 +54,16 @@ npm run dev
 ```
 
 ### 3. Set up the Backend
+
+We recommend setting up a remote MongoDB instance (Atlas server) for this.
+
+Use the <a href="https://www.mongodb.com/docs/database-tools/mongorestore/#mongodb-binary-bin.mongorestore">`mongorestore`</a> utility to load the database into your remote MongoDB instance.
+
+Next, create a `.env` file inside the `exo-backend` folder and include the MongoDB connection string to your MongoDB cluster in it. It should look something like this:
+
+```
+MONGO_URI = mongodb+srv://admin:password@foo.bar.mongodb.net/
+```
 
 Open up a new terminal from the root folder of the project, and move into the `exo-backend` folder:
 

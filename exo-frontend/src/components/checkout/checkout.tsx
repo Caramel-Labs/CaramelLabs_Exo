@@ -4,16 +4,40 @@ import BlueButton from "../shared/blueButton"
 import PageHeader from "../shared/pageHeader"
 import CheckoutPageInfo from "./checkoutPageInfo"
 import calculateTotalPrice from "@/utils/calculateTotalPrice"
-import handleBooking from "@/utils/handleBooking"
 import getCards from "@/utils/getCards"
 import { useFormState } from "@/context/bookingFormContext"
-import { on } from "process"
+import handleBookingConfirmation from "@/utils/handleBookingConfirmation"
+import { useEffect, useState } from "react"
+import BankCardCarousel from "./bankCardCarousel"
 
 export default function Checkout() {
-  //console.log(`Props are ${props.props[0]}`)
+  const [cards, setCards] = useState([])
+
+  // added by Ravindu
+  const bankCards = [
+    { balance: 123456, cardNumber: "1111 2222 3333 4444" },
+    { balance: 789654, cardNumber: "5555 8888 9999 6666" },
+    { balance: 456982, cardNumber: "7777 2222 6666 2244" },
+    // Add more cards as needed
+  ]
+
   const { onHandleNext, onHandleBack, formData } = useFormState()
   const { cosmoCruiser, orionLux, astroHop, currentClass } = formData
-  //const cards = await getCards()
+
+  useEffect(() => {
+    const fetchCards = async () => {
+      try {
+        const fetchedCards = await getCards()
+        setCards(fetchedCards)
+      } catch (error) {
+        console.error("Error fetching cards:", error)
+      }
+    }
+
+    fetchCards()
+  }, [])
+
+  console.log(cards, "cards")
 
   const classToGetPrices =
     currentClass === "Cosmo Cruiser"
@@ -22,8 +46,17 @@ export default function Checkout() {
       ? orionLux
       : astroHop
 
-  async function handleClick() {
-    onHandleNext()
+  async function handlePayment() {
+    try {
+      const response = await handleBookingConfirmation()
+      console.log(response, "response")
+      if (response && response.status === 200) {
+        onHandleNext()
+        console.log("Booking successful")
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const paymentItems = [
@@ -37,10 +70,14 @@ export default function Checkout() {
 
   return (
     <main>
-      <PageHeader title="Payment" />
+      <PageHeader title="Payment" onHandleBack={onHandleBack} />
       <section className="mt-4">
-        <p className="text-xs text-gray-600 flex justify-center">Swipe left to select a StarGate Corporation card.</p>
-        <p className="flex justify-center mt-6">The fucking credit carrrrd</p>
+        <p className="text-xs text-gray-600 flex justify-center">
+          Swipe to select a StarGate Corporation card.
+        </p>
+        <div className="mt-6">
+          <BankCardCarousel bankCards={bankCards} />
+        </div>
       </section>
 
       <section>
@@ -58,7 +95,7 @@ export default function Checkout() {
         <BlueButton
           sgcLogo={true}
           text="Authorize Payment"
-          onClick={handleClick}
+          onClick={handlePayment}
         />
       </section>
     </main>

@@ -1,3 +1,5 @@
+"use client"
+
 type travelClassButtonProps = {
   name1: string
   name2: string
@@ -11,14 +13,17 @@ export default function TravelClassButton(props: travelClassButtonProps) {
   const handleClick = () => {
     props.setCurrentClass(props.name1 + " " + props.name2) // Update the currentClass state
   }
-
   const isSelected = props.currentClass === props.name1 + " " + props.name2
+  //console.log(isSelected, `${props.name1} ${props.name2}`, props.currentClass)
+
+  if (isSelected)
+    console.log(`${props.name1} ${props.name2}`, props.currentClass, "selected")
 
   return (
     <div className="text-white">
       <button
         className={`bg-zinc-800 flex flex-col rounded-lg w-24 h-24 justify-center items-center ${
-          isSelected && "bg-blue-600"
+          isSelected && "bg-blue-700"
         }`}
         onClick={handleClick}
       >

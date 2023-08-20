@@ -65,7 +65,7 @@ export default function ConfirmBooking() {
 
   return (
     <div>
-      <PageHeader title="Confirm Booking" />
+      <PageHeader title="Confirm Booking" onHandleBack={onHandleBack} />
 
       {/* Visualization (with planets) */}
       <section className="flex justify-around">

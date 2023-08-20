@@ -5,9 +5,8 @@ import BookFlight from "@/components/bookFlight/bookFlight"
 import SelectSeats from "@/components/selectSeats/selectSeats"
 import ConfirmBooking from "@/components/confirmBooking/confirmBooking"
 import Checkout from "@/components/checkout/checkout"
-import BoardingPass from "@/components/boardingPass/boardingPass"
 
-export default function ActiveStepForm(props: any) {
+export default function BookingStepForm(props: any) {
   const { step } = useFormState()
   switch (step) {
     case 0:
