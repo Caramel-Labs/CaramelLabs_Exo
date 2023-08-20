@@ -156,7 +156,7 @@ const bookedSeats = asyncHandler(async (req, res) => {
 //*********************************************** */
 const confirmBooking = asyncHandler(async (req, res) => {
   try {
-    const bookingId = req.params.bookingId;
+    const bookingId = req.body.bookingId;
     const { price } = req.body;
 
     const updatedBooking = await bookingModel.findByIdAndUpdate(
@@ -169,22 +169,22 @@ const confirmBooking = asyncHandler(async (req, res) => {
       },
       { new: true }
     );
-
+    console.log(updatedBooking);
     if (!updatedBooking) {
       return res.status(404).json({ message: "Booking not found" });
     }
 
     // Update passengers in the trip document
-    const tripId = updatedBooking.trip;
-    const participants = updatedBooking.participants;
+    // const tripId = updatedBooking.trip;
+    // const participants = updatedBooking.participants;
 
-    await tripModel.findByIdAndUpdate(
-      tripId,
-      { $addToSet: { passengers: participants } },
-      { new: true }
-    );
+    // await tripModel.findByIdAndUpdate(
+    //   tripId,
+    //   { $addToSet: { passengers: participants } },
+    //   { new: true }
+    // );
 
-    return res.status(200).json(updatedBooking);
+    res.status(200).json(updatedBooking);
   } catch (error) {
     console.error("Error updating booking:", error);
     return res.status(500).json({ message: "Internal server error" });
