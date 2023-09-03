@@ -9,9 +9,12 @@ import ConfirmationPageInfo from "./confirmationPageInfo"
 import Image from "next/image"
 
 import { useFormState } from "@/context/bookingFormContext"
+import { useState } from "react"
 
 export default function ConfirmBooking() {
   const { onHandleNext, onHandleBack, formData } = useFormState()
+  const [updatePrice, setUpdatePrice] = useState(0)
+  console.log(formData, "form data")
 
   const {
     arrival,
@@ -21,6 +24,9 @@ export default function ConfirmBooking() {
     isBusinessTrip,
     isVeganMeal,
     isVegMeal,
+    totalPrice,
+    spaceShip,
+    selectedSeats,
   } = formData
 
   const bookingData = {
@@ -32,8 +38,8 @@ export default function ConfirmBooking() {
     tripType: isBusinessTrip ? "Business" : "Personal",
     vegan: isVeganMeal,
     veg: isVegMeal,
-    price: 1500,
-    seats: ["A1", "A2", "A3"],
+    price: updatePrice,
+    seats: selectedSeats,
     status: "pending",
   }
 
@@ -52,6 +58,8 @@ export default function ConfirmBooking() {
   // }
 
   async function handleBookingSubmit() {
+    setUpdatePrice(totalPrice)
+
     try {
       const response = await handleBooking(JSON.stringify(bookingData))
       console.log(response, "response")
@@ -75,7 +83,12 @@ export default function ConfirmBooking() {
           <p>{departure.location}</p>
         </div>
         <div>
-          <Image src={'/visuals/one-way-visual.png'} width={317} height={132} alt="Visual" />
+          <Image
+            src={"/visuals/one-way-visual.png"}
+            width={317}
+            height={132}
+            alt="Visual"
+          />
         </div>
       </section>
 
@@ -88,18 +101,8 @@ export default function ConfirmBooking() {
       <section>
         <SectionHeader question="Passengers" />
         <UserAvatar src="" firstName="" lastName="" />
-        <SeatButton
-          seatNumber=""
-          isAvailable={true}
-          aisle={false}
-          isSelected={true}
-        />
-        <SeatButton
-          seatNumber=""
-          isAvailable={true}
-          aisle={false}
-          isSelected={true}
-        />
+        <SeatButton seatNumber="" isAvailable={true} />
+        <SeatButton seatNumber="" isAvailable={true} />
       </section>
 
       {/* Miscellaneous info */}

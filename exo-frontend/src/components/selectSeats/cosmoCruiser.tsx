@@ -1,6 +1,10 @@
 import SeatLayout from "./seatLayout"
 
-export default function CosmoCruiser() {
+type cosmoCruiserProps = {
+  availableSeats: string[]
+}
+
+export default function CosmoCruiser(props: cosmoCruiserProps) {
   const seatLayout = [
     "C1",
     "C2",
@@ -28,6 +32,11 @@ export default function CosmoCruiser() {
   const rows = 3
   const seatsPerRow = 7
   return (
-    <SeatLayout rows={rows} seatsPerRow={seatsPerRow} seatLayout={seatLayout} />
+    <SeatLayout
+      rows={rows}
+      seatsPerRow={seatsPerRow}
+      seatLayout={seatLayout}
+      availableSeats={props.availableSeats}
+    />
   )
 }

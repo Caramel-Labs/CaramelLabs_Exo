@@ -35,7 +35,7 @@ export default async function BoardingPass() {
 
       <section>
         <SpacePortName name={trip[0].departure.location} />
-        <p> Rocket go brrrrrr</p>
+        <p>Rocket go brrrrrr</p>
         <SpacePortName name={trip[0].arrival.location} />
       </section>
 
@@ -47,7 +47,7 @@ export default async function BoardingPass() {
 
       <section>
         <Image height={100} width={200} alt="barcode" src={barcodePath} />
-        <p> 874GSRT7549335TT</p>
+        <p>874GSRT7549335TT</p>
       </section>
 
       <BlueButton text="Save to Neurachip" sgcLogo={true} />

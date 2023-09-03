@@ -3,18 +3,29 @@
 import PageHeader from "../shared/pageHeader"
 import Image from "next/image"
 import Description from "../shared/description"
-import SeatButton from "./seatButton"
 import BlueButton from "../shared/blueButton"
 import { useFormState } from "@/context/bookingFormContext"
 import AstroHop from "./astroHop"
 import CosmoCruiser from "./cosmoCruiser"
 import OrionLux from "./orionLux"
+import { useSelectedSeats } from "@/context/seatSelectionContext"
+
+import { useState } from "react"
 
 export default function SelectSeats() {
   const { onHandleNext, onHandleBack, setFormData, formData } = useFormState()
   console.log(formData, "form data")
 
-  const { currentClass } = formData
+  const { currentClass, availableSeats } = formData
+
+  const { selectedSeats } = useSelectedSeats()
+
+  //console.log(selectedSeats, "selected seats in parent")
+
+  function handleClick() {
+    setFormData({ ...formData, selectedSeats: selectedSeats })
+    onHandleNext()
+  }
 
   return (
     <main className="bg-black text-white">
@@ -42,17 +53,30 @@ export default function SelectSeats() {
       </section>
 
       {/* Seat arrangement */}
-      {currentClass === "Cosmo Cruiser" ? (
-        <CosmoCruiser />
+      {/* {currentClass === "Cosmo Cruiser" ? (
+        <CosmoCruiser availableSeats={["C1", "C2", "C3", "C8"]} />
       ) : currentClass === "Orion Lux" ? (
-        <OrionLux />
+        <OrionLux availableSeats={availableSeats} />
       ) : (
-        <AstroHop />
-      )}
+        <AstroHop availableSeats={availableSeats} />
+      )} */}
+      <CosmoCruiser
+        availableSeats={[
+          "C1",
+          "C2",
+          "C7",
+          "C8",
+          "C10",
+          "C11",
+          "C12",
+          "C13",
+          "C20",
+        ]}
+      />
 
       {/* Continue button */}
       <section className="flex justify-center items-center my-16">
-        <BlueButton text="Continue" sgcLogo={false} onClick={onHandleNext} />
+        <BlueButton text="Continue" sgcLogo={false} onClick={handleClick} />
       </section>
     </main>
   )
