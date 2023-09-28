@@ -43,32 +43,7 @@ const fetchallTripDetails = asyncHandler(async (req, res) => {
 //@access          --
 //******************************************* */
 const fetchTripDetails = asyncHandler(async (req, res) => {
-  if (!req.body._id) {
-    console.log("trip_id param not sent with request");
-    return res.sendStatus(400);
-  }
-
-  try {
-    const Trip = await tripModel
-      .findById({
-        _id: req.body._id,
-      })
-      .populate("passengers")
-      .populate("spaceship")
-      .exec();
-
-    if (Trip) {
-      res.status(200).json(Trip);
-      console.log(Trip);
-    } else {
-      res.status(404).json({ message: "Trip object not found" });
-      console.log("Trip object not found");
-    }
-  } catch (error) {
-    res.status(400);
-    console.log("Error is in the fetchTripDetails function", error);
-    throw new Error(error.message);
-  }
+   
 });
 
 //******************************************* */
