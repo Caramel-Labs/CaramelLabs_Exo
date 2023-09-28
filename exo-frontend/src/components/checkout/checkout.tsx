@@ -12,16 +12,17 @@ import BankCardCarousel from "./bankCardCarousel"
 
 export default function Checkout() {
   const [cards, setCards] = useState([])
+  const [thetotalPrice, setTheTotalPrice] = useState(0)
 
   // added by Ravindu
   const bankCards = [
-    { balance: 123456, cardNumber: "1111 2222 3333 4444" },
-    { balance: 789654, cardNumber: "5555 8888 9999 6666" },
-    { balance: 456982, cardNumber: "7777 2222 6666 2244" },
+    { cardholder: "Lasindu Ranasinghe", cardNumber: "1111 2222 3333 4444" },
+    { cardholder: "John Doe", cardNumber: "5555 8888 9999 6666" },
+    { cardholder: "Miles Morales", cardNumber: "7777 2222 6666 2244" },
     // Add more cards as needed
   ]
 
-  const { onHandleNext, onHandleBack, formData } = useFormState()
+  const { onHandleNext, onHandleBack, formData, setFormData } = useFormState()
   const { cosmoCruiser, orionLux, astroHop, currentClass } = formData
 
   useEffect(() => {
@@ -47,7 +48,9 @@ export default function Checkout() {
       : astroHop
 
   async function handlePayment() {
+    setTheTotalPrice(totalPrice)
     try {
+      setFormData({ ...formData, totalPrice })
       const response = await handleBookingConfirmation()
       console.log(response, "response")
       if (response && response.status === 200) {

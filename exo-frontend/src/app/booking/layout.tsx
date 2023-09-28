@@ -1,4 +1,8 @@
 import { FormProvider } from "@/context/bookingFormContext"
+import {
+  useSelectedSeats,
+  SelectedSeatsProvider,
+} from "@/context/seatSelectionContext"
 
 export default function BookingLayout({
   children,
@@ -8,7 +12,9 @@ export default function BookingLayout({
   return (
     <html lang="en">
       <body>
-        <FormProvider>{children}</FormProvider>
+        <FormProvider>
+          <SelectedSeatsProvider>{children}</SelectedSeatsProvider>
+        </FormProvider>
       </body>
     </html>
   )

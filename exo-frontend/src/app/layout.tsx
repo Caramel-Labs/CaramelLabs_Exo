@@ -1,23 +1,8 @@
 import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { Audiowide } from "next/font/google"
-import { Inria_Sans } from "next/font/google"
-import { Aoboshi_One } from "next/font/google"
 
 const inter = Inter({ subsets: ["latin"] })
-const audiowide = Audiowide({
-  weight: "400",
-  preload: false,
-})
-const inriaSans = Inria_Sans({
-  weight: "400",
-  preload: false,
-})
-const aoboshiOne = Aoboshi_One({
-  weight: "400",
-  preload: false,
-})
 
 export const metadata: Metadata = {
   title: "EXO",
@@ -31,11 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} ${audiowide.className} ${inriaSans.className} ${aoboshiOne.className}`}
-      >
-        {children}
-      </body>
+      <body className={`${inter.className}`}>{children}</body>
     </html>
   )
 }

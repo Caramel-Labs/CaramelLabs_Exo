@@ -10,7 +10,7 @@ export default function UserAvatar(props: UserAvatarProps) {
     <main>
       <Image
         className="rounded-full"
-        src={props.src}
+        src={`/${props.src}`}
         alt="Rounded avatar"
         width={40}
         height={40}
